@@ -7,6 +7,7 @@ import { PromoTicker } from '@/components/layout/PromoTicker';
 import { MobileNav } from '@/components/layout/MobileNav';
 import { RoleSwitcherBar } from '@/components/ui/RoleSwitcherBar';
 import { ToastContainer } from '@/components/ui/ToastContainer';
+import { LiveChatDrawer } from '@/components/chat/LiveChatDrawer';
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -55,6 +56,9 @@ export default function RootLayout({
 
         {/* Mobile Sticky Bottom Nav */}
         <MobileNav />
+
+        {/* Global Live Seller Chat Widget */}
+        <LiveChatDrawer />
 
         {/* Toast Feedback Renderer */}
         <ToastContainer />

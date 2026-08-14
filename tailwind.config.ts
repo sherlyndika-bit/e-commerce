@@ -10,22 +10,33 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Distinctive COinaja Palette: Electric Indigo + Golden Coin
         brand: {
-          50: '#fff4f0',
-          100: '#ffe6dc',
-          200: '#ffcfbd',
-          300: '#ffa88f',
-          400: '#ff7754',
-          500: '#ff471a', // Electric Vermilion primary
-          600: '#f03107',
-          700: '#c82403',
-          800: '#9e1f08',
-          900: '#801e0d',
-          950: '#460b03',
+          50: '#eef2ff',
+          100: '#e0e7ff',
+          200: '#c7d2fe',
+          300: '#a5b4fc',
+          400: '#818cf8',
+          500: '#4f46e5', // Primary Electric Indigo (Distinct from Shopee orange)
+          600: '#4338ca',
+          700: '#3730a3',
+          800: '#312e81',
+          900: '#1e1b4b',
+          950: '#0f0e26',
+        },
+        coin: {
+          50: '#fffbeb',
+          100: '#fef3c7',
+          200: '#fde68a',
+          300: '#fcd34d',
+          400: '#fbbf24',
+          500: '#f59e0b', // Luminous Gold for COinaja Koin
+          600: '#d97706',
+          700: '#b45309',
         },
         slate: {
-          850: '#151f32',
-          950: '#070b14',
+          850: '#131b2e',
+          950: '#080c16',
         },
         mint: {
           50: '#ecfdf5',
@@ -34,23 +45,16 @@ const config: Config = {
           600: '#059669',
           700: '#047857',
         },
-        amber: {
-          50: '#fffbeb',
-          100: '#fef3c7',
-          400: '#fbbf24',
-          500: '#f59e0b',
-          600: '#d97706',
-        },
       },
       fontFamily: {
         sans: ['var(--font-jakarta)', 'Inter', 'sans-serif'],
         display: ['var(--font-jakarta)', 'sans-serif'],
       },
       boxShadow: {
-        'subtle': '0 2px 10px rgba(0, 0, 0, 0.04)',
-        'elevated': '0 10px 30px -5px rgba(0, 0, 0, 0.08)',
-        'glow': '0 0 25px rgba(255, 71, 26, 0.25)',
-        'glow-amber': '0 0 25px rgba(245, 158, 11, 0.3)',
+        'subtle': '0 2px 12px rgba(0, 0, 0, 0.04)',
+        'elevated': '0 12px 32px -4px rgba(79, 70, 229, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03)',
+        'glow': '0 0 25px rgba(79, 70, 229, 0.25)',
+        'glow-coin': '0 0 25px rgba(245, 158, 11, 0.35)',
       },
       keyframes: {
         shimmer: {
@@ -64,11 +68,16 @@ const config: Config = {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-6px)' },
         },
+        coinPulse: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.15) rotate(10deg)' },
+        },
       },
       animation: {
         shimmer: 'shimmer 1.5s infinite',
         marquee: 'marquee 25s linear infinite',
         float: 'float 4s ease-in-out infinite',
+        'coin-pulse': 'coinPulse 2s ease-in-out infinite',
       },
     },
   },

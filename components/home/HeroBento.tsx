@@ -66,10 +66,10 @@ export function HeroBento() {
   const quickPills = [
     { label: 'Flash Sale Kilat', icon: Zap, href: '/#flash-sale', color: 'text-amber-500 bg-amber-50 dark:bg-amber-950/40 border-amber-200 dark:border-amber-800' },
     { label: 'Bebas Ongkir Xtra', icon: Truck, href: '/products?free_shipping=true', color: 'text-emerald-600 bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-800' },
-    { label: 'Official Mall', icon: ShieldCheck, href: '/products?seller_badge=official', color: 'text-blue-600 bg-blue-50 dark:bg-blue-950/40 border-blue-200 dark:border-blue-800' },
-    { label: 'Koin COinaja', icon: Sparkles, href: '/account', color: 'text-amber-600 bg-amber-50 dark:bg-amber-950/40 border-amber-200 dark:border-amber-800' },
-    { label: 'Lokal Pride ID', icon: Award, href: '/shops/brodo-official', color: 'text-indigo-600 bg-indigo-50 dark:bg-indigo-950/40 border-indigo-200 dark:border-indigo-800' },
-    { label: 'Klaim Kupon Hari Ini', icon: Ticket, href: '/cart', color: 'text-brand-600 bg-brand-50 dark:bg-brand-950/40 border-brand-200 dark:border-brand-800' },
+    { label: 'Official Mall', icon: ShieldCheck, href: '/products?seller_badge=official', color: 'text-indigo-600 bg-indigo-50 dark:bg-indigo-950/40 border-indigo-200 dark:border-indigo-800' },
+    { label: 'Panen Koin COinaja', icon: Sparkles, href: '/account?tab=coins', color: 'text-coin-600 bg-coin-50 dark:bg-coin-950/40 border-coin-200 dark:border-coin-800' },
+    { label: 'Lokal Pride ID', icon: Award, href: '/shops/brodo-official', color: 'text-purple-600 bg-purple-50 dark:bg-purple-950/40 border-purple-200 dark:border-purple-800' },
+    { label: 'Pusat Voucher Promo', icon: Ticket, href: '/vouchers', color: 'text-brand-600 bg-brand-50 dark:bg-brand-950/40 border-brand-200 dark:border-brand-800' },
   ];
 
   const slide = heroSlides[currentSlide];

@@ -362,8 +362,8 @@ export const mockProducts: Product[] = [
     sellerCity: 'Surabaya',
     sellerBadge: 'star',
     images: [
-      'https://images.unsplash.com/photo-1584990347449-397a08b53272?q=80&w=800&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=800&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?q=80&w=800&auto=format&fit=crop',
     ],
     variantGroups: [
       {
