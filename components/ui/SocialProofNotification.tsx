@@ -3,48 +3,31 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { X, CheckCircle, Sparkles } from 'lucide-react';
-import { mockProducts } from '@/lib/mock-data/products';
+import { X, CheckCircle } from 'lucide-react';
+import { useProductStore } from '@/lib/store/useProductStore';
 
 interface NotificationItem {
   name: string;
   city: string;
-  product: (typeof mockProducts)[0];
+  product: any;
   timeAgo: string;
 }
 
 export function SocialProofNotification() {
   const [isVisible, setIsVisible] = useState(false);
   const [currentNotif, setCurrentNotif] = useState<NotificationItem | null>(null);
-
-  const samplePurchases: NotificationItem[] = [
-    {
-      name: 'Rian Kusuma',
-      city: 'Bandung',
-      product: mockProducts[0], // Brodo
-      timeAgo: '1 menit lalu',
-    },
-    {
-      name: 'Nadia Salsabila',
-      city: 'Jakarta Selatan',
-      product: mockProducts[4], // Somethinc
-      timeAgo: '3 menit lalu',
-    },
-    {
-      name: 'Budi Haryanto',
-      city: 'Surabaya',
-      product: mockProducts[1], // Sony
-      timeAgo: 'Baru saja',
-    },
-    {
-      name: 'Faisal Akbar',
-      city: 'Yogyakarta',
-      product: mockProducts[3], // Keychron
-      timeAgo: '5 menit lalu',
-    },
-  ];
+  const { products: allProducts } = useProductStore();
 
   useEffect(() => {
+    if (!allProducts || allProducts.length === 0) return;
+    
+    const samplePurchases = [
+      { name: 'Rian Kusuma', city: 'Bandung', product: allProducts[0], timeAgo: '1 menit lalu' },
+      { name: 'Nadia Salsabila', city: 'Jakarta Selatan', product: allProducts[Math.min(4, allProducts.length - 1)], timeAgo: '3 menit lalu' },
+      { name: 'Budi Haryanto', city: 'Surabaya', product: allProducts[Math.min(1, allProducts.length - 1)], timeAgo: 'Baru saja' },
+      { name: 'Faisal Akbar', city: 'Yogyakarta', product: allProducts[Math.min(3, allProducts.length - 1)], timeAgo: '5 menit lalu' },
+    ];
+
     let index = 0;
     const interval = setInterval(() => {
       setCurrentNotif(samplePurchases[index % samplePurchases.length]);
@@ -70,9 +53,9 @@ export function SocialProofNotification() {
       clearInterval(interval);
       clearTimeout(initialTimer);
     };
-  }, []);
+  }, [allProducts]);
 
-  if (!isVisible || !currentNotif) return null;
+  if (!isVisible || !currentNotif || !currentNotif.product) return null;
 
   return (
     <div className="fixed bottom-20 left-4 sm:left-6 z-30 max-w-xs sm:max-w-sm bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl border border-slate-200/80 dark:border-slate-800 p-3 shadow-elevated flex items-center gap-3 animate-in fade-in slide-in-from-bottom-2 duration-300">
@@ -86,12 +69,12 @@ export function SocialProofNotification() {
         </p>
         <Link
           href={`/products/${currentNotif.product.slug}`}
-          className="font-bold text-brand-600 dark:text-brand-400 truncate block mt-0.5 hover:underline"
+          className="font-bold text-pink-600 dark:text-pink-400 truncate block mt-0.5 hover:underline"
         >
           {currentNotif.product.title}
         </Link>
         <span className="text-[9px] text-slate-400 flex items-center gap-1 mt-0.5">
-          <CheckCircle className="w-2.5 h-2.5 text-emerald-500" /> Terverifikasi • {currentNotif.timeAgo}
+          <CheckCircle className="w-2.5 h-2.5 text-pink-500" /> Terverifikasi • {currentNotif.timeAgo}
         </span>
       </div>
 

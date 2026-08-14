@@ -41,7 +41,7 @@ export function InvoiceModal({ order, isOpen, onClose }: InvoiceModalProps) {
             </div>
 
             <div className="text-right">
-              <span className="inline-block px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-black text-[11px] uppercase tracking-wider mb-1">
+              <span className="inline-block px-2.5 py-0.5 rounded-full bg-pink-100 dark:bg-pink-950/60 text-pink-700 dark:text-pink-300 font-black text-[11px] uppercase tracking-wider mb-1">
                 ✓ LUNAS (PAID)
               </span>
               <p className="font-mono font-black text-slate-900 dark:text-white text-sm">
@@ -128,7 +128,7 @@ export function InvoiceModal({ order, isOpen, onClose }: InvoiceModalProps) {
                 <span>{formatRupiah(order.totalShippingCost)}</span>
               </div>
               {order.totalDiscount > 0 && (
-                <div className="flex justify-between text-emerald-600 font-bold">
+                <div className="flex justify-between text-pink-600 font-bold">
                   <span>Diskon Kupon Promo:</span>
                   <span>-{formatRupiah(order.totalDiscount)}</span>
                 </div>
@@ -149,7 +149,7 @@ export function InvoiceModal({ order, isOpen, onClose }: InvoiceModalProps) {
           {/* Footer Official Seal */}
           <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[10px] text-slate-400">
             <div className="flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-emerald-500" />
+              <ShieldCheck className="w-4 h-4 text-pink-500" />
               <span>Dokumen ini diterbitkan secara sah dan otomatis oleh sistem marketplace COinaja.</span>
             </div>
             <span className="font-mono">COINAJA-AUTHENTIC-RECORD</span>

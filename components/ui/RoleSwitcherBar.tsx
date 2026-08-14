@@ -1,14 +1,15 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthStore } from '@/lib/store/useAuthStore';
 import { useToastStore } from '@/lib/store/useToastStore';
-import { User, Store, ShieldCheck, ArrowRightLeft } from 'lucide-react';
+import { User, Store, ArrowRightLeft, ChevronUp, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 
 export function RoleSwitcherBar() {
   const { currentUser, switchUser, allDemoUsers } = useAuthStore();
   const { addToast } = useToastStore();
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const handleSwitch = (userId: string, roleName: string) => {
     switchUser(userId);
@@ -17,65 +18,67 @@ export function RoleSwitcherBar() {
       description: `Sekarang kamu sedang melihat sebagai ${roleName}`,
       type: 'info',
     });
+    setIsExpanded(false);
   };
 
   return (
-    <div className="bg-slate-900 text-white text-xs py-1.5 px-4 border-b border-slate-800">
-      <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-        <div className="flex items-center gap-2 text-slate-300">
-          <span className="inline-flex items-center gap-1 bg-brand-500/20 text-brand-400 px-2 py-0.5 rounded font-bold uppercase tracking-wider text-[10px] border border-brand-500/30">
-            <ArrowRightLeft className="w-3 h-3" /> Demo Switcher
-          </span>
-          <span className="hidden sm:inline">Role Aktif:</span>
-          <strong className="text-white font-semibold flex items-center gap-1.5">
-            {currentUser.role === 'buyer' && <User className="w-3.5 h-3.5 text-blue-400" />}
-            {currentUser.role === 'seller' && <Store className="w-3.5 h-3.5 text-emerald-400" />}
-            {currentUser.role === 'admin' && <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />}
-            {currentUser.name}
+    <div className="fixed bottom-4 right-4 z-50">
+      <div className="bg-slate-900/95 backdrop-blur-md text-white rounded-full shadow-2xl border border-slate-700/80 px-3 py-1.5 flex items-center gap-2 text-xs">
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="flex items-center gap-1.5 font-medium hover:text-brand-400 transition-colors"
+        >
+          <span className="w-2 h-2 rounded-full bg-pink-400 animate-pulse" />
+          <span className="text-[11px] text-slate-300">Mode:</span>
+          <strong className="text-white font-bold flex items-center gap-1">
+            {currentUser.role === 'buyer' && <User className="w-3 h-3 text-blue-400" />}
+            {currentUser.role === 'seller' && <Store className="w-3 h-3 text-pink-400" />}
+            {currentUser.role === 'buyer' ? 'Pembeli' : 'Seller'}
           </strong>
-        </div>
+          {isExpanded ? <ChevronDown className="w-3 h-3" /> : <ChevronUp className="w-3 h-3" />}
+        </button>
 
-        <div className="flex items-center gap-1.5 sm:gap-2">
+        {currentUser.role === 'seller' && (
+          <Link
+            href="/seller"
+            className="bg-pink-600 hover:bg-pink-500 text-white px-2 py-0.5 rounded-full text-[10px] font-bold transition-colors ml-1"
+          >
+            Seller Center →
+          </Link>
+        )}
+        {currentUser.role === 'admin' && (
+          <Link
+            href="/superadmin"
+            className="bg-emerald-600 hover:bg-emerald-500 text-white px-2 py-0.5 rounded-full text-[10px] font-bold transition-colors ml-1"
+          >
+            Buka Superadmin →
+          </Link>
+        )}
+      </div>
+
+      {/* Expanded Menu */}
+      {isExpanded && (
+        <div className="absolute bottom-10 right-0 mb-1 bg-slate-900/95 backdrop-blur-md border border-slate-700 rounded-xl p-2 shadow-2xl w-48 text-xs space-y-1">
+          <p className="text-[10px] font-bold text-slate-400 px-2 py-1 uppercase tracking-wider">Ganti Akun Demo</p>
           {allDemoUsers.map((u) => {
             const isActive = currentUser.id === u.id;
             return (
               <button
                 key={u.id}
-                onClick={() => handleSwitch(u.id, u.role === 'buyer' ? 'Pembeli' : u.role === 'seller' ? 'Seller Center' : 'Super Admin')}
-                className={`px-2.5 py-0.5 rounded transition-all font-medium text-[11px] flex items-center gap-1 ${
-                  isActive
-                    ? 'bg-brand-500 text-white shadow-xs font-bold'
-                    : 'bg-slate-800 hover:bg-slate-700 text-slate-300'
+                onClick={() => handleSwitch(u.id, u.role === 'buyer' ? 'Pembeli' : 'Seller Center')}
+                className={`w-full text-left px-2.5 py-1.5 rounded-lg flex items-center justify-between text-[11px] font-medium transition-colors ${
+                  isActive ? 'bg-brand-500 text-white font-bold' : 'hover:bg-slate-800 text-slate-300'
                 }`}
               >
-                {u.role === 'buyer' && '👤 Pembeli'}
-                {u.role === 'seller' && '🏪 Seller'}
-                {u.role === 'admin' && '🛡️ Admin'}
+                <span className="flex items-center gap-1.5">
+                  {u.role === 'buyer' ? '👤' : u.role === 'seller' ? '🏪' : '🛡️'} {u.name.split(' ')[0]}
+                </span>
+                <span className="text-[9px] opacity-70 uppercase">{u.role}</span>
               </button>
             );
           })}
-
-          <div className="h-3.5 w-px bg-slate-700 mx-1 hidden sm:block" />
-
-          {currentUser.role === 'seller' && (
-            <Link
-              href="/seller"
-              className="bg-emerald-600 hover:bg-emerald-500 text-white px-2.5 py-0.5 rounded font-bold text-[11px] transition-colors"
-            >
-              Buka Seller Center →
-            </Link>
-          )}
-
-          {currentUser.role === 'admin' && (
-            <Link
-              href="/admin"
-              className="bg-amber-600 hover:bg-amber-500 text-white px-2.5 py-0.5 rounded font-bold text-[11px] transition-colors"
-            >
-              Buka Admin Portal →
-            </Link>
-          )}
         </div>
-      </div>
+      )}
     </div>
   );
 }

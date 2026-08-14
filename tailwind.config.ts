@@ -10,19 +10,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Distinctive COinaja Palette: Electric Indigo + Golden Coin
         brand: {
-          50: '#eef2ff',
-          100: '#e0e7ff',
-          200: '#c7d2fe',
-          300: '#a5b4fc',
-          400: '#818cf8',
-          500: '#4f46e5', // Primary Electric Indigo (Distinct from Shopee orange)
-          600: '#4338ca',
-          700: '#3730a3',
-          800: '#312e81',
-          900: '#1e1b4b',
-          950: '#0f0e26',
+          50: '#fdf2f8',
+          100: '#fce7f3',
+          200: '#fbcfe8',
+          300: '#f9a8d4',
+          400: '#f472b6',
+          500: '#ec4899',
+          600: '#db2777', // Primary Pink
+          700: '#be185d',
+          800: '#9d174d',
+          900: '#831843',
+          950: '#500724',
         },
         coin: {
           50: '#fffbeb',
@@ -39,11 +38,11 @@ const config: Config = {
           950: '#080c16',
         },
         mint: {
-          50: '#ecfdf5',
-          100: '#d1fae5',
-          500: '#10b981',
-          600: '#059669',
-          700: '#047857',
+          50: '#fdf2f8',
+          100: '#fce7f3',
+          500: '#ec4899',
+          600: '#db2777',
+          700: '#be185d',
         },
       },
       fontFamily: {

@@ -12,7 +12,7 @@ export function ToastContainer() {
   const getIcon = (type: string) => {
     switch (type) {
       case 'success':
-        return <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />;
+        return <CheckCircle2 className="w-5 h-5 text-pink-500 shrink-0" />;
       case 'warning':
         return <AlertCircle className="w-5 h-5 text-amber-500 shrink-0" />;
       case 'error':

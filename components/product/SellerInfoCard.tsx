@@ -88,7 +88,7 @@ export function SellerInfoCard({ seller }: SellerInfoCardProps) {
         </div>
         <div>
           <span className="text-slate-400 block text-[11px]">Respons Chat:</span>
-          <span className="font-extrabold text-emerald-600 dark:text-emerald-400 mt-0.5 block">
+          <span className="font-extrabold text-pink-600 dark:text-pink-400 mt-0.5 block">
             {seller.responseRate}% ({seller.responseSpeed})
           </span>
         </div>

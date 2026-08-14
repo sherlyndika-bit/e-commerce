@@ -207,7 +207,7 @@ export function FilterSidebar() {
       <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
         <label className="flex items-center justify-between cursor-pointer">
           <div className="flex items-center gap-2">
-            <Truck className="w-4 h-4 text-emerald-500" />
+            <Truck className="w-4 h-4 text-pink-500" />
             <span className="text-xs font-bold text-slate-800 dark:text-slate-200">
               Bebas Ongkir Saja
             </span>

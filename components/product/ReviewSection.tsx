@@ -129,7 +129,7 @@ export function ReviewSection({ reviews, averageRating, totalReviews }: ReviewSe
                         <span className="font-bold text-xs sm:text-sm text-slate-900 dark:text-white">
                           {review.userName}
                         </span>
-                        <span className="inline-flex items-center gap-0.5 text-[10px] text-emerald-600 bg-emerald-50 dark:bg-emerald-950/40 px-1.5 py-0.2 rounded font-semibold">
+                        <span className="inline-flex items-center gap-0.5 text-[10px] text-pink-600 bg-pink-50 dark:bg-pink-950/40 px-1.5 py-0.2 rounded font-semibold">
                           <CheckCircle className="w-2.5 h-2.5" /> Pembeli Terverifikasi
                         </span>
                       </div>

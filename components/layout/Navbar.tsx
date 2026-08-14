@@ -8,30 +8,24 @@ import {
   Search,
   ShoppingCart,
   Heart,
-  User as UserIcon,
   Grid,
   ChevronDown,
   X,
   Store,
-  ShieldCheck,
   Package,
-  MapPin,
-  Sparkles,
   LogOut,
-  ArrowRight,
-  TrendingUp,
   Ticket,
-  PlusCircle,
+  ShoppingBag,
+  Bell,
 } from 'lucide-react';
 import { useCartStore } from '@/lib/store/useCartStore';
 import { useWishlistStore } from '@/lib/store/useWishlistStore';
 import { useAuthStore } from '@/lib/store/useAuthStore';
-import { mockProducts } from '@/lib/mock-data/products';
+import { useToastStore } from '@/lib/store/useToastStore';
+import { useProductStore } from '@/lib/store/useProductStore';
 import { mockCategories } from '@/lib/mock-data/categories';
 import { formatRupiah } from '@/lib/utils/formatters';
 import { MegaMenu } from './MegaMenu';
-import { Badge } from '../ui/Badge';
-import { ThemeToggle } from '../ui/ThemeToggle';
 import { LuckySpinModal } from '../gamification/LuckySpinModal';
 import { TopUpModal } from '../wallet/TopUpModal';
 
@@ -48,16 +42,17 @@ export function Navbar() {
   const searchRef = useRef<HTMLDivElement>(null);
   const userMenuRef = useRef<HTMLDivElement>(null);
 
-  const { items, getTotalItemsCount, getSelectedSubtotal } = useCartStore();
+  const { items, getTotalItemsCount } = useCartStore();
   const { wishlistIds } = useWishlistStore();
   const { currentUser, isAuthenticated, logout } = useAuthStore();
+  const { addToast } = useToastStore();
+  const { products: allProducts } = useProductStore();
 
   const totalCartCount = getTotalItemsCount();
   const totalWishlistCount = wishlistIds.length;
 
-  // Filtered preview for live autocomplete
   const filteredProducts = searchQuery.trim()
-    ? mockProducts
+    ? allProducts
         .filter(
           (p) =>
             p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -72,7 +67,6 @@ export function Navbar() {
         .slice(0, 3)
     : [];
 
-  // Close popups on click outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
@@ -94,397 +88,240 @@ export function Navbar() {
     }
   };
 
-  const trendingKeywords = ['Headphone ANC', 'Boots Kulit Brodo', 'Serum Somethinc', 'Keychron K2', 'Kopi Arabika'];
+  const trendingKeywords = ['Headphone ANC', 'Boots Kulit Brodo', 'Serum Somethinc', 'Keychron K2', 'Kopi Arabika', 'Sepatu Sneakers'];
 
   return (
     <>
-      <header className="sticky top-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 transition-colors shadow-subtle">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-18 gap-3 sm:gap-6">
-            {/* Distinctive Logo Brand */}
-            <div className="flex items-center gap-3 sm:gap-4">
-              <Link href="/" className="flex items-center gap-2.5 group">
-                <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-brand-600 via-brand-500 to-indigo-700 flex items-center justify-center text-white font-black text-xl shadow-elevated group-hover:scale-105 transition-transform border border-white/20 relative overflow-hidden">
-                  <span className="relative z-10 text-white tracking-tighter">CO</span>
-                  <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-coin-400 border border-white flex items-center justify-center text-[8px] font-black text-slate-900 shadow-xs">
-                    🪙
-                  </span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 dark:text-white flex items-center">
-                    CO<span className="text-brand-600 dark:text-brand-400">in</span><span className="text-coin-500">aja</span>
-                    <span className="ml-1 px-1.5 py-0.2 rounded-full bg-coin-100 text-coin-700 dark:bg-coin-950/60 dark:text-coin-400 text-[9px] font-black uppercase tracking-wider">
-                      PRO
-                    </span>
-                  </span>
-                  <span className="text-[9px] font-extrabold text-slate-400 -mt-1 hidden sm:block tracking-widest uppercase">
-                    Belanja & Panen Koin
-                  </span>
-                </div>
-              </Link>
-
-              {/* Category Mega Menu Trigger */}
-              <button
-                onClick={() => setIsMegaMenuOpen(!isMegaMenuOpen)}
-                onMouseEnter={() => setIsMegaMenuOpen(true)}
-                className={`hidden lg:flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-bold transition-all ${
-                  isMegaMenuOpen
-                    ? 'bg-brand-50 text-brand-600 dark:bg-brand-950/40 dark:text-brand-400'
-                    : 'text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
-                }`}
-              >
-                <Grid className="w-4 h-4 text-brand-600" />
-                <span>Kategori</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isMegaMenuOpen ? 'rotate-180' : ''}`} />
-              </button>
+      {/* We wrap the header and mega menu in a sticky container so the mega menu positions correctly relative to it */}
+      <div className="sticky top-0 z-50 w-full relative">
+        <header className="bg-white border-b border-slate-200/90 shadow-2xs relative z-50 w-full">
+          {/* TOP BAR */}
+          <div className="bg-slate-50 border-b border-slate-200/60 hidden md:block">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-7 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+              <div className="flex items-center gap-4">
+                <button onClick={() => addToast({ title: 'Tentang COinaja', description: 'Fitur halaman perusahaan sedang dikembangkan.', type: 'info' })} className="hover:text-pink-600 transition-colors">Tentang COinaja</button>
+                <span className="text-slate-300">|</span>
+                <Link href="/auth/register" className="hover:text-pink-600 transition-colors flex items-center gap-1"><Store className="w-3 h-3 text-pink-600"/> Mulai Berjualan</Link>
+                <span className="text-slate-300">|</span>
+                <button onClick={() => addToast({ title: 'Download App', description: 'Aplikasi mobile akan segera rilis di Play Store & App Store.', type: 'info' })} className="hover:text-pink-600 transition-colors">Download App</button>
+              </div>
+              <div className="flex items-center gap-4">
+                <Link href="/vouchers" className="hover:text-pink-600 transition-colors">Promo & Voucher</Link>
+                <span className="text-slate-300">|</span>
+                <button onClick={() => addToast({ title: 'COinaja Care', description: 'Customer service kami siap membantu Anda 24/7.', type: 'info' })} className="hover:text-pink-600 transition-colors">COinaja Care</button>
+                <span className="text-slate-300">|</span>
+                <span className="text-slate-500">🇮🇩 IDR</span>
+              </div>
             </div>
+          </div>
 
-            {/* Search Bar with Live Autocomplete */}
-            <div ref={searchRef} className="flex-1 max-w-2xl relative">
-              <form onSubmit={handleSearchSubmit} className="relative">
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => {
-                    setSearchQuery(e.target.value);
-                    setIsSearchOpen(true);
-                  }}
-                  onFocus={() => setIsSearchOpen(true)}
-                  placeholder="Cari gadget, fashion, skincare, produk nusantara..."
-                  className="w-full h-11 pl-11 pr-24 rounded-full bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:bg-white dark:focus:bg-slate-850 transition-all shadow-inner"
-                />
-                <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
-
-                {searchQuery && (
-                  <button
-                    type="button"
-                    onClick={() => setSearchQuery('')}
-                    className="absolute right-20 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1"
-                  >
-                    <X className="w-3.5 h-3.5" />
-                  </button>
-                )}
+          {/* MAIN NAVIGATION HEADER */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+            <div className="flex items-center justify-between gap-4 sm:gap-6">
+              {/* 1. Logo & Kategori Button */}
+              <div className="flex items-center gap-3 shrink-0">
+                <Link href="/" className="flex items-center gap-2 group">
+                  <div className="w-8 h-8 rounded-lg bg-pink-600 flex items-center justify-center text-white shadow-2xs">
+                    <ShoppingBag className="w-4.5 h-4.5" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-xl font-black tracking-tight text-pink-600">
+                      COinaja
+                    </span>
+                  </div>
+                </Link>
 
                 <button
-                  type="submit"
-                  className="absolute right-1.5 top-1/2 -translate-y-1/2 bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs px-4 h-8 rounded-full transition-all active:scale-95 shadow-xs"
+                  onClick={() => setIsMegaMenuOpen(!isMegaMenuOpen)}
+                  className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold text-slate-700 hover:text-pink-600 hover:bg-slate-100 rounded-md transition-colors"
                 >
-                  Cari
+                  <Grid className="w-3.5 h-3.5" />
+                  <span>Kategori</span>
+                  <ChevronDown className={`w-3 h-3 text-slate-400 transition-transform ${isMegaMenuOpen ? 'rotate-180' : ''}`} />
                 </button>
-              </form>
+              </div>
 
-              {/* Live Autocomplete Popup */}
-              {isSearchOpen && (
-                <div className="absolute top-full left-0 w-full mt-2 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden z-50 p-4 animate-in fade-in slide-in-from-top-1 duration-150">
-                  {searchQuery.trim() ? (
-                    <div>
-                      {filteredCategories.length > 0 && (
-                        <div className="mb-3 pb-3 border-b border-slate-100 dark:border-slate-800">
-                          <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1.5">
-                            Kategori Terkait
-                          </span>
-                          <div className="flex flex-wrap gap-2">
-                            {filteredCategories.map((c) => (
-                              <Link
-                                key={c.id}
-                                href={`/categories/${c.slug}`}
-                                onClick={() => setIsSearchOpen(false)}
-                                className="text-xs bg-slate-100 hover:bg-brand-50 hover:text-brand-600 dark:bg-slate-800 px-3 py-1 rounded-lg font-medium transition-colors"
-                              >
-                                📁 {c.name}
-                              </Link>
-                            ))}
+              {/* 2. Search Bar & Trending Keywords */}
+              <div className="flex-1 max-w-3xl relative flex flex-col gap-1" ref={searchRef}>
+                <form onSubmit={handleSearchSubmit} className="relative flex w-full h-9 border border-slate-300 focus-within:border-pink-600 rounded-md overflow-hidden bg-white transition-colors">
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => {
+                      setSearchQuery(e.target.value);
+                      setIsSearchOpen(true);
+                    }}
+                    onFocus={() => setIsSearchOpen(true)}
+                    placeholder="Cari barang, brand, atau kategori di COinaja..."
+                    className="w-full h-full pl-3 pr-10 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none"
+                  />
+                  
+                  {searchQuery && (
+                    <button type="button" onClick={() => setSearchQuery('')} className="absolute right-12 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1">
+                      <X className="w-3.5 h-3.5" />
+                    </button>
+                  )}
+
+                  <button type="submit" className="w-10 bg-pink-600 hover:bg-pink-700 flex items-center justify-center transition-colors">
+                    <Search className="w-4 h-4 text-white" />
+                  </button>
+                </form>
+
+                <div className="hidden md:flex items-center gap-2.5 text-[10px] text-slate-500 whitespace-nowrap overflow-x-auto no-scrollbar">
+                  {trendingKeywords.map((kw) => (
+                    <button
+                      key={kw}
+                      onClick={() => { setSearchQuery(kw); setIsSearchOpen(false); router.push(`/products?q=${encodeURIComponent(kw)}`); }}
+                      className="hover:text-pink-600 transition-colors"
+                    >
+                      {kw}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Autocomplete Popup */}
+                {isSearchOpen && (
+                  <div className="absolute top-10 left-0 w-full bg-white rounded-lg shadow-xl border border-slate-200 overflow-hidden z-[60] p-3 animate-in fade-in duration-100">
+                    {searchQuery.trim() ? (
+                      <div>
+                        {filteredCategories.length > 0 && (
+                          <div className="mb-2 pb-2 border-b border-slate-100">
+                            <span className="text-[10px] font-bold text-slate-400 uppercase block mb-1">Kategori Terkait</span>
+                            <div className="flex flex-wrap gap-1">
+                              {filteredCategories.map((c) => (
+                                <Link key={c.id} href={`/categories/${c.slug}`} onClick={() => setIsSearchOpen(false)} className="text-[11px] bg-slate-50 hover:bg-pink-50 hover:text-pink-600 px-2 py-0.5 rounded font-medium transition-colors">
+                                  {c.name}
+                                </Link>
+                              ))}
+                            </div>
                           </div>
-                        </div>
-                      )}
-
-                      {filteredProducts.length > 0 ? (
-                        <div>
-                          <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-2">
-                            Produk Pilihan
-                          </span>
-                          <div className="space-y-2">
-                            {filteredProducts.map((p) => (
-                              <Link
-                                key={p.id}
-                                href={`/products/${p.slug}`}
-                                onClick={() => setIsSearchOpen(false)}
-                                className="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors group"
-                              >
-                                <div className="relative w-11 h-11 rounded-lg overflow-hidden shrink-0 border border-slate-100 dark:border-slate-800">
-                                  <Image src={p.images[0]} alt={p.title} fill className="object-cover" />
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                  <p className="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate group-hover:text-brand-500">
-                                    {p.title}
-                                  </p>
-                                  <div className="flex items-center gap-2 mt-0.5">
-                                    <span className="text-xs font-bold text-brand-600 dark:text-brand-400">
-                                      {formatRupiah(p.price)}
-                                    </span>
-                                    <span className="text-[10px] text-slate-400">
-                                      {p.sellerCity}
-                                    </span>
+                        )}
+                        {filteredProducts.length > 0 ? (
+                          <div>
+                            <div className="space-y-1">
+                              {filteredProducts.map((p) => (
+                                <Link key={p.id} href={`/products/${p.slug}`} onClick={() => setIsSearchOpen(false)} className="flex items-center gap-2.5 p-1 rounded hover:bg-slate-50 transition-colors group">
+                                  <Image src={p.images[0]} alt={p.title} width={32} height={32} className="rounded object-cover border border-slate-100" />
+                                  <div className="flex-1 min-w-0">
+                                    <p className="text-xs font-medium text-slate-800 truncate group-hover:text-pink-600">{p.title}</p>
+                                    <span className="text-xs font-bold text-pink-600">{formatRupiah(p.price)}</span>
                                   </div>
-                                </div>
-                                <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-brand-500 group-hover:translate-x-0.5 transition-all" />
-                              </Link>
-                            ))}
+                                </Link>
+                              ))}
+                            </div>
                           </div>
-                        </div>
-                      ) : (
-                        <p className="text-xs text-slate-500 text-center py-2">
-                          Tekan <strong>Enter</strong> untuk mencari &quot;{searchQuery}&quot; di seluruh katalog
-                        </p>
-                      )}
-                    </div>
-                  ) : (
-                    <div>
-                      <div className="flex items-center gap-1.5 text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
-                        <TrendingUp className="w-3.5 h-3.5 text-brand-500" />
-                        Paling Sering Dicari
+                        ) : (
+                           <p className="text-xs text-slate-500 p-2">Tekan Enter untuk mencari &quot;{searchQuery}&quot;</p>
+                        )}
                       </div>
-                      <div className="flex flex-wrap gap-2">
-                        {trendingKeywords.map((kw) => (
-                          <button
-                            key={kw}
-                            type="button"
-                            onClick={() => {
-                              setSearchQuery(kw);
-                              setIsSearchOpen(false);
-                              router.push(`/products?q=${encodeURIComponent(kw)}`);
-                            }}
-                            className="text-xs bg-slate-100 hover:bg-brand-50 hover:text-brand-600 dark:bg-slate-800 dark:hover:bg-brand-950 px-3 py-1.5 rounded-full text-slate-700 dark:text-slate-300 font-medium transition-colors cursor-pointer"
-                          >
-                            {kw}
-                          </button>
+                    ) : (
+                      <div>
+                         <span className="text-[10px] font-bold text-slate-400 uppercase block mb-1.5">Pencarian Populer</span>
+                         <div className="flex flex-wrap gap-1.5">
+                           {trendingKeywords.map((kw) => (
+                             <button key={kw} onClick={() => { setSearchQuery(kw); setIsSearchOpen(false); router.push(`/products?q=${encodeURIComponent(kw)}`); }} className="text-xs bg-slate-50 hover:bg-pink-50 hover:text-pink-600 px-2.5 py-1 rounded-full text-slate-600 transition-colors">
+                               {kw}
+                             </button>
+                           ))}
+                         </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              {/* 3. Right Action Icons & User Profile */}
+              <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+                <Link href="/account?tab=wishlist" className="relative p-1.5 text-slate-600 hover:text-pink-600 transition-colors hidden sm:flex">
+                  <Heart className="w-5 h-5" />
+                  {totalWishlistCount > 0 && (
+                    <span className="absolute top-0.5 right-0.5 min-w-[15px] h-[15px] px-0.5 rounded-full bg-rose-500 text-white text-[9px] font-black flex items-center justify-center">
+                      {totalWishlistCount}
+                    </span>
+                  )}
+                </Link>
+
+                <div className="relative" onMouseEnter={() => setIsCartHovered(true)} onMouseLeave={() => setIsCartHovered(false)}>
+                  <Link href="/cart" className="relative p-1.5 text-slate-600 hover:text-pink-600 transition-colors flex items-center">
+                    <ShoppingCart className="w-5 h-5" />
+                    {totalCartCount > 0 && (
+                      <span className="absolute top-0.5 right-0.5 min-w-[16px] h-[16px] px-0.5 rounded-full bg-pink-600 text-white text-[9px] font-black flex items-center justify-center">
+                        {totalCartCount}
+                      </span>
+                    )}
+                  </Link>
+
+                  {isCartHovered && items.length > 0 && (
+                    <div className="absolute top-full right-0 mt-1 w-80 bg-white rounded-lg shadow-xl border border-slate-200 p-3 z-50 animate-in fade-in duration-100">
+                      <p className="text-[11px] font-bold text-slate-400 uppercase mb-2">Keranjang Belanja</p>
+                      <div className="space-y-2 max-h-60 overflow-y-auto">
+                        {items.slice(0, 3).map((item) => (
+                          <div key={item.id} className="flex items-center gap-2.5 py-1">
+                            <Image src={item.product.images[0]} alt={item.product.title} width={36} height={36} className="rounded border border-slate-100 object-cover" />
+                            <div className="flex-1 min-w-0">
+                              <p className="text-xs font-semibold text-slate-800 truncate">{item.product.title}</p>
+                              <span className="text-xs font-bold text-pink-600">{formatRupiah(item.product.price)}</span>
+                            </div>
+                          </div>
                         ))}
+                      </div>
+                      <div className="pt-2.5 mt-2 border-t border-slate-100 flex justify-between items-center">
+                         <span className="text-xs text-slate-500">{items.length} Barang</span>
+                         <Link href="/cart" className="px-3 py-1 bg-pink-600 hover:bg-pink-700 text-white rounded text-xs font-bold transition-colors">Lihat Keranjang</Link>
                       </div>
                     </div>
                   )}
                 </div>
-              )}
-            </div>
 
-            {/* Quick Actions & Right Menu */}
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              {/* Voucher Hub Link */}
-              <Link
-                href="/vouchers"
-                className="hidden xl:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-brand-50 text-slate-700 dark:text-slate-200 text-xs font-bold transition-colors"
-              >
-                <Ticket className="w-4 h-4 text-brand-600" />
-                <span>Voucher</span>
-              </Link>
+                <div className="h-5 w-px bg-slate-200" />
 
-              {/* Lucky Spin / Coin Center Trigger */}
-              <button
-                onClick={() => setIsLuckySpinOpen(true)}
-                className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-coin-50 hover:bg-coin-100 dark:bg-coin-950/40 dark:hover:bg-coin-900/60 text-coin-700 dark:text-coin-400 text-xs font-black transition-colors border border-coin-200/80 dark:border-coin-800"
-              >
-                <span className="text-sm">🪙</span>
-                <span>{formatRupiah(currentUser.coinBalance || 0)}</span>
-              </button>
-
-              {/* Theme Switcher Toggle */}
-              <ThemeToggle />
-
-              {/* Wishlist Button */}
-              <Link
-                href="/account?tab=wishlist"
-                className="relative p-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                title="Wishlist Saya"
-              >
-                <Heart className="w-5 h-5" />
-                {totalWishlistCount > 0 && (
-                  <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-rose-500 text-white text-[10px] font-black flex items-center justify-center shadow-xs">
-                    {totalWishlistCount}
-                  </span>
-                )}
-              </Link>
-
-              {/* Cart Button */}
-              <div
-                className="relative"
-                onMouseEnter={() => setIsCartHovered(true)}
-                onMouseLeave={() => setIsCartHovered(false)}
-              >
-                <Link
-                  href="/cart"
-                  className="relative flex items-center gap-2 p-2 sm:px-3 sm:py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-brand-50 hover:text-brand-600 dark:hover:bg-brand-950/40 dark:hover:text-brand-400 text-slate-800 dark:text-slate-200 transition-all group font-bold text-xs"
-                >
-                  <div className="relative">
-                    <ShoppingCart className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                    {totalCartCount > 0 && (
-                      <span className="absolute -top-2 -right-2 min-w-4 h-4 px-1 rounded-full bg-brand-600 text-white text-[9px] font-black flex items-center justify-center shadow-xs">
-                        {totalCartCount}
-                      </span>
-                    )}
-                  </div>
-                  <span className="hidden sm:inline font-bold">
-                    {formatRupiah(getSelectedSubtotal())}
-                  </span>
-                </Link>
-
-                {/* Cart Flyout Hover Preview */}
-                {isCartHovered && items.length > 0 && (
-                  <div className="absolute top-full right-0 mt-2 w-80 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 p-4 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
-                    <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800 mb-3">
-                      <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
-                        Keranjang ({items.length} Barang)
-                      </span>
-                      <Link href="/cart" className="text-xs text-brand-600 font-bold hover:underline">
-                        Lihat Semua
-                      </Link>
+                <div ref={userMenuRef} className="relative flex items-center">
+                  {isAuthenticated ? (
+                    <div className="flex items-center gap-2 cursor-pointer" onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}>
+                       <div className="relative w-7 h-7 rounded-full border border-slate-200 overflow-hidden">
+                         <Image src={currentUser.avatar} alt="User" fill className="object-cover" />
+                       </div>
+                       <div className="hidden lg:flex flex-col text-left">
+                         <span className="text-xs font-bold text-slate-800 flex items-center gap-0.5">
+                           {currentUser.name.split(' ')[0]} <ChevronDown className="w-3 h-3 text-slate-400" />
+                         </span>
+                       </div>
                     </div>
-
-                    <div className="space-y-2 max-h-56 overflow-y-auto pr-1">
-                      {items.slice(0, 3).map((item) => (
-                        <div key={item.id} className="flex items-center gap-3">
-                          <div className="relative w-10 h-10 rounded-lg overflow-hidden shrink-0 border border-slate-100 dark:border-slate-800">
-                            <Image src={item.product.images[0]} alt={item.product.title} fill className="object-cover" />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <p className="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate">
-                              {item.product.title}
-                            </p>
-                            <span className="text-xs font-bold text-brand-600">
-                              {formatRupiah(item.product.price)}
-                            </span>
-                          </div>
-                        </div>
-                      ))}
+                  ) : (
+                    <div className="flex items-center gap-2">
+                      <Link href="/auth/login" className="px-2.5 py-1 text-xs font-bold text-pink-600 hover:bg-pink-50 rounded border border-pink-600 transition-colors">Masuk</Link>
+                      <Link href="/auth/register" className="px-2.5 py-1 text-xs font-bold text-white bg-pink-600 hover:bg-pink-700 rounded transition-colors">Daftar</Link>
                     </div>
+                  )}
 
-                    <div className="pt-3 border-t border-slate-100 dark:border-slate-800 mt-3">
-                      <Link href="/cart" className="w-full">
-                        <button className="w-full py-2 bg-brand-600 hover:bg-brand-500 text-white rounded-xl font-bold text-xs shadow-xs">
-                          Buka Keranjang Belanja
-                        </button>
-                      </Link>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* User Dropdown */}
-              <div ref={userMenuRef} className="relative">
-                {isAuthenticated ? (
-                  <button
-                    onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                    className="flex items-center gap-2 p-1 pl-2 rounded-full border border-slate-200 dark:border-slate-700 hover:border-brand-500 transition-colors"
-                  >
-                    <span className="text-xs font-bold text-slate-700 dark:text-slate-300 hidden md:inline max-w-[100px] truncate">
-                      {currentUser.name.split(' ')[0]}
-                    </span>
-                    <div className="relative w-7 h-7 rounded-full overflow-hidden border border-brand-500">
-                      <Image src={currentUser.avatar} alt={currentUser.name} fill className="object-cover" />
-                    </div>
-                  </button>
-                ) : (
-                  <Link
-                    href="/auth/login"
-                    className="px-3.5 py-1.5 rounded-full bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs shadow-xs"
-                  >
-                    Masuk
-                  </Link>
-                )}
-
-                {/* User Menu Dropdown */}
-                {isUserMenuOpen && (
-                  <div className="absolute top-full right-0 mt-2 w-56 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 p-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
-                    <div className="p-2 border-b border-slate-100 dark:border-slate-800 mb-1">
-                      <p className="font-bold text-xs text-slate-900 dark:text-white truncate">{currentUser.name}</p>
-                      <p className="text-[10px] text-slate-400 truncate">{currentUser.email}</p>
-                      <div className="mt-2 flex items-center justify-between">
-                        <span className="text-[10px] font-bold text-coin-600 bg-coin-50 dark:bg-coin-950/40 px-2 py-0.5 rounded-full">
-                          🪙 {formatRupiah(currentUser.coinBalance)}
-                        </span>
-                        <button
-                          onClick={() => {
-                            setIsUserMenuOpen(false);
-                            setIsTopUpOpen(true);
-                          }}
-                          className="text-[10px] font-black text-brand-600 hover:underline"
-                        >
-                          + Isi Saldo
-                        </button>
+                  {isUserMenuOpen && isAuthenticated && (
+                    <div className="absolute top-full right-0 mt-2 w-52 bg-white rounded-lg shadow-xl border border-slate-200 p-2 z-50">
+                      <div className="p-2 border-b border-slate-100 mb-1 flex items-center gap-2.5">
+                         <div className="w-8 h-8 rounded-full bg-amber-50 border border-amber-200 flex items-center justify-center text-sm">🪙</div>
+                         <div>
+                           <p className="text-[10px] text-slate-400 font-bold uppercase">Saldo Koin</p>
+                           <p className="text-xs font-black text-amber-600">{formatRupiah(currentUser.coinBalance)}</p>
+                         </div>
+                      </div>
+                      <div className="space-y-0.5 text-xs font-medium">
+                        <Link href="/account?tab=orders" className="flex items-center gap-2 px-2.5 py-1.5 rounded text-slate-700 hover:bg-slate-50"><Package className="w-3.5 h-3.5 text-slate-400" /> Pesanan Saya</Link>
+                        <Link href="/vouchers" className="flex items-center gap-2 px-2.5 py-1.5 rounded text-slate-700 hover:bg-slate-50"><Ticket className="w-3.5 h-3.5 text-pink-600" /> Pusat Voucher</Link>
+                        <Link href="/seller" className="flex items-center gap-2 px-2.5 py-1.5 rounded text-slate-700 hover:bg-slate-50"><Store className="w-3.5 h-3.5 text-pink-600" /> Toko Saya</Link>
+                        <button onClick={() => { logout(); setIsUserMenuOpen(false); }} className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded text-rose-600 hover:bg-rose-50 text-left"><LogOut className="w-3.5 h-3.5" /> Keluar</button>
                       </div>
                     </div>
-
-                    <div className="space-y-0.5 text-xs font-semibold">
-                      <Link
-                        href="/account?tab=orders"
-                        onClick={() => setIsUserMenuOpen(false)}
-                        className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
-                      >
-                        <Package className="w-4 h-4 text-slate-400" />
-                        <span>Pesanan Saya</span>
-                      </Link>
-
-                      <button
-                        onClick={() => {
-                          setIsUserMenuOpen(false);
-                          setIsLuckySpinOpen(true);
-                        }}
-                        className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 text-left"
-                      >
-                        <Sparkles className="w-4 h-4 text-coin-500" />
-                        <span>Roda Koin & Check-in</span>
-                      </button>
-
-                      <Link
-                        href="/vouchers"
-                        onClick={() => setIsUserMenuOpen(false)}
-                        className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
-                      >
-                        <Ticket className="w-4 h-4 text-emerald-500" />
-                        <span>Pusat Voucher</span>
-                      </Link>
-
-                      <Link
-                        href="/seller"
-                        onClick={() => setIsUserMenuOpen(false)}
-                        className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
-                      >
-                        <Store className="w-4 h-4 text-brand-600" />
-                        <span>Seller Center</span>
-                      </Link>
-
-                      <Link
-                        href="/admin"
-                        onClick={() => setIsUserMenuOpen(false)}
-                        className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
-                      >
-                        <ShieldCheck className="w-4 h-4 text-amber-500" />
-                        <span>Portal Admin</span>
-                      </Link>
-
-                      <div className="pt-1 border-t border-slate-100 dark:border-slate-800">
-                        <button
-                          onClick={() => {
-                            logout();
-                            setIsUserMenuOpen(false);
-                          }}
-                          className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-left"
-                        >
-                          <LogOut className="w-4 h-4" />
-                          <span>Keluar</span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </header>
 
         {/* Mega Menu Dropdown */}
         <MegaMenu isOpen={isMegaMenuOpen} onClose={() => setIsMegaMenuOpen(false)} />
-      </header>
+      </div>
 
-      {/* Global Interactive Modals */}
+      {/* Interactive Modals */}
       <LuckySpinModal isOpen={isLuckySpinOpen} onClose={() => setIsLuckySpinOpen(false)} />
       <TopUpModal isOpen={isTopUpOpen} onClose={() => setIsTopUpOpen(false)} />
     </>

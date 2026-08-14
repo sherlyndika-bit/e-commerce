@@ -26,7 +26,7 @@ export function LuckySpinModal({ isOpen, onClose }: LuckySpinModalProps) {
 
   const prizes = [
     { label: '+2.500 Koin', value: 2500, type: 'coin', color: 'from-amber-400 to-coin-500' },
-    { label: 'Voucher Ongkir 100%', value: 0, type: 'voucher', color: 'from-emerald-400 to-teal-500' },
+    { label: 'Voucher Ongkir 100%', value: 0, type: 'voucher', color: 'from-pink-400 to-teal-500' },
     { label: '+1.000 Koin', value: 1000, type: 'coin', color: 'from-indigo-400 to-brand-600' },
     { label: '+5.000 Koin', value: 5000, type: 'coin', color: 'from-amber-500 to-coin-600' },
     { label: 'Cashback 50%', value: 0, type: 'voucher', color: 'from-rose-400 to-pink-500' },

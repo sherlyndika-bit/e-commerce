@@ -23,31 +23,31 @@ export function Button({
 }: ButtonProps) {
   const sizeStyles = {
     xs: 'h-7 px-2.5 text-xs rounded-md gap-1 font-semibold',
-    sm: 'h-9 px-3.5 text-xs sm:text-sm rounded-lg gap-1.5 font-semibold',
-    md: 'h-10 px-4 text-sm rounded-xl gap-2 font-bold',
-    lg: 'h-12 px-6 text-base rounded-xl gap-2.5 font-extrabold tracking-tight',
+    sm: 'h-8 px-3 text-xs rounded-md gap-1.5 font-semibold',
+    md: 'h-9 px-4 text-xs sm:text-sm rounded-lg gap-2 font-bold',
+    lg: 'h-11 px-5 text-sm sm:text-base rounded-lg gap-2.5 font-bold',
   };
 
   const variantStyles = {
     primary:
-      'bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white shadow-sm hover:shadow-glow hover:-translate-y-0.5 active:translate-y-0 transition-all border border-brand-400/30',
+      'bg-pink-600 hover:bg-pink-700 text-white shadow-2xs transition-colors',
     secondary:
-      'bg-brand-50 hover:bg-brand-100 text-brand-600 dark:bg-brand-950/30 dark:hover:bg-brand-900/50 dark:text-brand-400 border border-brand-200/60 dark:border-brand-800/40 transition-colors',
+      'bg-pink-50 hover:bg-pink-100 text-pink-700 border border-pink-200 transition-colors',
     outline:
-      'border-2 border-slate-200 hover:border-brand-500 hover:text-brand-500 bg-transparent text-slate-700 dark:border-slate-800 dark:text-slate-200 dark:hover:border-brand-400 transition-colors',
+      'border border-slate-300 hover:border-pink-600 hover:text-pink-600 bg-white text-slate-700 transition-colors',
     ghost:
-      'bg-transparent hover:bg-slate-100 text-slate-700 dark:text-slate-300 dark:hover:bg-slate-800 transition-colors',
+      'bg-transparent hover:bg-slate-100 text-slate-700 transition-colors',
     danger:
-      'bg-rose-500 hover:bg-rose-600 text-white shadow-sm transition-colors',
+      'bg-rose-600 hover:bg-rose-700 text-white shadow-2xs transition-colors',
     dark:
-      'bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 transition-colors',
+      'bg-slate-900 hover:bg-slate-800 text-white transition-colors',
   };
 
   return (
     <button
       disabled={disabled || isLoading}
       className={cn(
-        'relative inline-flex items-center justify-center select-none cursor-pointer transition-all duration-150 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none disabled:cursor-not-allowed',
+        'relative inline-flex items-center justify-center select-none cursor-pointer transition-colors duration-150 disabled:opacity-50 disabled:pointer-events-none disabled:cursor-not-allowed',
         sizeStyles[size],
         variantStyles[variant],
         className

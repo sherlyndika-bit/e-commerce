@@ -6,74 +6,24 @@
   :root {
     --background: 240 20% 99%;
     --foreground: 224 71% 4%;
-    --primary: 243 75% 59%;
-    --primary-foreground: 0 0% 100%;
-    --coin-gold: 38 92% 50%;
-  }
-
-  .dark {
-    --background: 228 45% 5%;
-    --foreground: 210 40% 98%;
-    --primary: 243 75% 59%;
+    --primary: 158 64% 52%;
     --primary-foreground: 0 0% 100%;
     --coin-gold: 38 92% 50%;
   }
 
   body {
-    @apply bg-[#FAFAFC] dark:bg-[#090D16] text-slate-900 dark:text-slate-100 font-sans antialiased transition-colors duration-200;
+    @apply bg-slate-50 text-slate-900 font-sans antialiased;
   }
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-slate-200 dark:bg-slate-800 rounded-full hover:bg-brand-400;
-}
-
-/* Discount Ribbon */
-.discount-ribbon {
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 6px), 50% 100%, 0 calc(100% - 6px));
-}
-
-/* Ticket Cutout Borders for Vouchers */
-.voucher-ticket-left {
-  position: relative;
-}
-.voucher-ticket-left::before {
-  content: '';
-  position: absolute;
-  left: -8px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background-color: #FAFAFC;
-}
-.dark .voucher-ticket-left::before {
-  background-color: #090D16;
-}
-
-.voucher-ticket-right {
-  position: relative;
-}
-.voucher-ticket-right::after {
-  content: '';
-  position: absolute;
-  right: -8px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background-color: #FAFAFC;
-}
-.dark .voucher-ticket-right::after {
-  background-color: #090D16;
+  @apply bg-slate-300 rounded-full hover:bg-pink-500;
 }

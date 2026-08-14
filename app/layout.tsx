@@ -1,16 +1,8 @@
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
-import { Navbar } from '@/components/layout/Navbar';
-import { Footer } from '@/components/layout/Footer';
-import { PromoTicker } from '@/components/layout/PromoTicker';
-import { MobileNav } from '@/components/layout/MobileNav';
 import { RoleSwitcherBar } from '@/components/ui/RoleSwitcherBar';
 import { ToastContainer } from '@/components/ui/ToastContainer';
-import { LiveChatDrawer } from '@/components/chat/LiveChatDrawer';
-import { AIAssistantDrawer } from '@/components/ai/AIAssistantDrawer';
-import { SocialProofNotification } from '@/components/ui/SocialProofNotification';
-
 const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
@@ -40,33 +32,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id" className={`${jakarta.variable} scroll-smooth`}>
-      <body className="min-h-screen flex flex-col antialiased bg-[#f8fafc] text-slate-900 pb-16 lg:pb-0">
+      <body className="min-h-screen flex flex-col antialiased bg-slate-50 text-slate-900 pb-16 lg:pb-0">
         {/* Floating Demo Role Switcher Bar */}
         <RoleSwitcherBar />
 
-        {/* Promo Marquee Ticker */}
-        <PromoTicker />
+        {/* Child Routes */}
+        {children}
 
-        {/* Global Navigation Header */}
-        <Navbar />
 
-        {/* Main Content Body */}
-        <main className="flex-1">{children}</main>
-
-        {/* Global Footer */}
-        <Footer />
-
-        {/* Mobile Sticky Bottom Nav */}
-        <MobileNav />
-
-        {/* Global Live Seller Chat Widget */}
-        <LiveChatDrawer />
-
-        {/* Global Smart AI Shopping Assistant */}
-        <AIAssistantDrawer />
-
-        {/* Social Proof Realtime Purchases */}
-        <SocialProofNotification />
 
         {/* Toast Feedback Renderer */}
         <ToastContainer />

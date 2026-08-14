@@ -16,15 +16,15 @@ export function Badge({ variant = 'neutral', size = 'sm', className, children, .
   };
 
   const variantStyles = {
-    official: 'bg-emerald-600 text-white shadow-xs',
+    official: 'bg-pink-600 text-white shadow-xs',
     star: 'bg-amber-500 text-white shadow-xs',
     flash: 'bg-gradient-to-r from-red-600 to-brand-500 text-white animate-pulse',
-    free_shipping: 'bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-950/50 dark:text-emerald-300 dark:border-emerald-800',
+    free_shipping: 'bg-pink-50 text-pink-700 border border-pink-200 dark:bg-pink-950/50 dark:text-pink-300 dark:border-pink-800',
     discount: 'bg-red-50 text-red-600 border border-red-200 dark:bg-red-950/40 dark:text-red-400 dark:border-red-900',
     coin: 'bg-amber-50 text-amber-800 border border-amber-200 dark:bg-amber-950/40 dark:text-amber-300 dark:border-amber-900',
     lokal: 'bg-indigo-50 text-indigo-700 border border-indigo-200 dark:bg-indigo-950/40 dark:text-indigo-300 dark:border-indigo-800',
     neutral: 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300',
-    success: 'bg-emerald-500 text-white',
+    success: 'bg-pink-500 text-white',
     warning: 'bg-amber-500 text-white',
     danger: 'bg-rose-500 text-white',
   };

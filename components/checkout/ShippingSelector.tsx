@@ -46,7 +46,7 @@ export function ShippingSelector({
                     {opt.courierName}
                   </span>
                   {opt.isFreeEligible && (
-                    <span className="text-[10px] bg-emerald-100 text-emerald-700 font-extrabold px-1.5 py-0.2 rounded">
+                    <span className="text-[10px] bg-pink-100 text-pink-700 font-extrabold px-1.5 py-0.2 rounded">
                       Promo Bebas Ongkir
                     </span>
                   )}

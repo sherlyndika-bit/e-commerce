@@ -2,119 +2,93 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { mockCategories } from '@/lib/mock-data/categories';
-import {
-  Smartphone,
-  Shirt,
-  ShoppingBag,
-  Sparkles,
-  Laptop,
-  Home,
-  Utensils,
-  Trophy,
-  Heart,
-  Gamepad2,
-  Car,
-  BookOpen,
-  ArrowRight,
-} from 'lucide-react';
+import { useToastStore } from '@/lib/store/useToastStore';
+import { 
+  RiSmartphoneFill,
+  RiShirtFill,
+  RiShoppingBag3Fill,
+  RiSparkling2Fill,
+  RiComputerFill,
+  RiHomeSmile2Fill,
+  RiRestaurant2Fill,
+  RiTrophyFill,
+  RiHeart3Fill,
+  RiGamepadFill,
+  RiCarFill,
+  RiBookOpenFill
+} from 'react-icons/ri';
 
 export function CategoryExplorer() {
+  const { addToast } = useToastStore();
   const getCategoryIcon = (iconName: string) => {
-    const props = { className: 'w-5 h-5' };
+    // We map the mock data's iconName (which was designed for Lucide) to FontAwesome Solid icons
+    const props = { className: 'w-6 h-6' };
     switch (iconName) {
       case 'Smartphone':
-        return <Smartphone {...props} />;
+        return <RiSmartphoneFill {...props} />;
       case 'Shirt':
-        return <Shirt {...props} />;
+        return <RiShirtFill {...props} />;
       case 'ShoppingBag':
-        return <ShoppingBag {...props} />;
+        return <RiShoppingBag3Fill {...props} />;
       case 'Sparkles':
-        return <Sparkles {...props} />;
+        return <RiSparkling2Fill {...props} />;
       case 'Laptop':
-        return <Laptop {...props} />;
+        return <RiComputerFill {...props} />;
       case 'Home':
-        return <Home {...props} />;
+        return <RiHomeSmile2Fill {...props} />;
       case 'Utensils':
-        return <Utensils {...props} />;
+        return <RiRestaurant2Fill {...props} />;
       case 'Trophy':
-        return <Trophy {...props} />;
+        return <RiTrophyFill {...props} />;
       case 'Heart':
-        return <Heart {...props} />;
+        return <RiHeart3Fill {...props} />;
       case 'Gamepad2':
-        return <Gamepad2 {...props} />;
+        return <RiGamepadFill {...props} />;
       case 'Car':
-        return <Car {...props} />;
+        return <RiCarFill {...props} />;
       case 'BookOpen':
-        return <BookOpen {...props} />;
+        return <RiBookOpenFill {...props} />;
       default:
-        return <ShoppingBag {...props} />;
+        return <RiShoppingBag3Fill {...props} />;
     }
   };
 
   return (
-    <section className="py-6 sm:py-8">
+    <section className="py-4 bg-white border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex items-center justify-between mb-6">
-          <div>
-            <span className="text-xs font-black text-brand-500 uppercase tracking-wider block">
-              12 Kategori Marketplace Lengkap
-            </span>
-            <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
-              Jelajahi Berdasarkan Kebutuhanmu
-            </h2>
-          </div>
-          <Link
-            href="/products"
-            className="text-xs font-bold text-brand-500 hover:text-brand-600 flex items-center gap-1 group"
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-base sm:text-lg font-black text-slate-800 tracking-tight">
+            Kategori Pilihan
+          </h2>
+          <Link 
+            href="/categories"
+            className="text-xs font-bold text-pink-600 hover:text-pink-700 hover:underline"
           >
-            Lihat Semua Produk
-            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            Lihat Semua →
           </Link>
         </div>
 
-        {/* 12-Category Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
+        {/* Dense 12-Category Grid */}
+        <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-y-6 gap-x-2">
           {mockCategories.map((cat) => (
             <Link
               key={cat.id}
               href={`/categories/${cat.slug}`}
-              className="group relative flex flex-col p-4 rounded-2xl bg-white dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 hover:border-brand-300 dark:hover:border-brand-800 shadow-subtle hover:shadow-elevated transition-all duration-300 overflow-hidden hover:-translate-y-1"
+              className="group flex flex-col items-center hover:-translate-y-1 transition-transform duration-200 text-center"
             >
-              {/* Category Icon & Badge */}
-              <div className="flex items-center justify-between mb-3">
-                <div className="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 dark:bg-brand-950/50 dark:text-brand-400 flex items-center justify-center group-hover:scale-110 group-hover:bg-brand-500 group-hover:text-white transition-all duration-300 shadow-xs">
-                  {getCategoryIcon(cat.iconName)}
-                </div>
+              <div className="relative w-[52px] h-[52px] rounded-full bg-pink-50 text-pink-500 flex items-center justify-center mb-2 shadow-xs border border-pink-100 transition-all duration-200 group-hover:bg-pink-500 group-hover:text-white group-hover:border-pink-500 group-hover:shadow-md">
+                {getCategoryIcon(cat.iconName)}
+                
                 {cat.isPopular && (
-                  <span className="text-[10px] font-black uppercase px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 dark:bg-amber-950/40 dark:text-amber-300">
+                  <span className="absolute -top-1.5 -right-1.5 bg-rose-500 text-white text-[8px] font-black uppercase px-1.5 py-0.5 rounded-full shadow-sm z-10 border-[1.5px] border-white">
                     Hot
                   </span>
                 )}
               </div>
-
-              {/* Title & Items Count */}
-              <div>
-                <h3 className="text-xs sm:text-sm font-extrabold text-slate-900 dark:text-white group-hover:text-brand-500 transition-colors line-clamp-1">
-                  {cat.name}
-                </h3>
-                <p className="text-[11px] text-slate-400 mt-0.5">
-                  {cat.itemCount}+ produk
-                </p>
-              </div>
-
-              {/* Hover preview image strip */}
-              <div className="mt-3 relative h-16 w-full rounded-lg overflow-hidden opacity-90 group-hover:opacity-100 transition-opacity">
-                <Image
-                  src={cat.bannerImage}
-                  alt={cat.name}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-              </div>
+              <span className="text-[11px] font-semibold text-slate-600 group-hover:text-pink-600 line-clamp-2 leading-tight px-1">
+                {cat.name}
+              </span>
             </Link>
           ))}
         </div>

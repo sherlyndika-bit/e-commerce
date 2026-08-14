@@ -3,73 +3,75 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export function CuratedCollections() {
   const collections = [
     {
       id: 'col-1',
-      title: '🇮🇩 Lokal Pride Indonesia',
-      subtitle: 'Koleksi Sepatu & Fashion Asli Bandung',
+      title: 'Lokal Pride Indonesia',
+      subtitle: 'Koleksi Sepatu Kulit & Fashion Asli Bandung',
       discount: 'Diskon s/d 40%',
       image: 'https://images.unsplash.com/photo-1520639888713-7851133b1ed0?q=80&w=600&auto=format&fit=crop',
       link: '/shops/brodo-official',
-      bg: 'from-amber-900/90 to-brand-900/90',
+      bgTag: 'bg-pink-600',
     },
     {
       id: 'col-2',
-      title: '✨ Skincare Glowing BPOM',
-      subtitle: 'Serum & Sunscreen Halal Terlaris',
+      title: 'Skincare Glowing BPOM',
+      subtitle: 'Serum & Sunscreen Halal Terlaris Garansi Asli',
       discount: 'Cashback 20rb Koin',
       image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=600&auto=format&fit=crop',
       link: '/categories/kecantikan-perawatan',
-      bg: 'from-rose-900/90 to-pink-900/90',
+      bgTag: 'bg-rose-600',
     },
     {
       id: 'col-3',
-      title: '⚡ Desk Setup Minimalis',
-      subtitle: 'Mechanical Keyboard & Audio Hi-Res',
+      title: 'Desk Setup Minimalis',
+      subtitle: 'Mechanical Keyboard, Monitor & Audio Hi-Res',
       discount: 'Gratis Ongkir Xtra',
       image: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?q=80&w=600&auto=format&fit=crop',
       link: '/categories/komputer-laptop',
-      bg: 'from-slate-900/90 to-indigo-900/90',
+      bgTag: 'bg-indigo-600',
     },
   ];
 
   return (
-    <section className="py-6 sm:py-8">
+    <section className="py-4 bg-white border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="flex items-center justify-between mb-3">
+          <h2 className="text-base sm:text-lg font-black text-slate-800 tracking-tight">
+            Koleksi Pilihan Hari Ini
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {collections.map((col) => (
             <Link
               key={col.id}
               href={col.link}
-              className="group relative h-48 sm:h-52 rounded-3xl overflow-hidden shadow-subtle hover:shadow-elevated transition-all duration-300 flex flex-col justify-end p-6 hover:-translate-y-1"
+              className="group relative h-28 sm:h-32 rounded-lg overflow-hidden border border-slate-200/90 shadow-2xs transition-all flex flex-col justify-end p-3 hover:border-pink-500"
             >
-              {/* Background Image with Dark Gradient Overlay */}
+              {/* Background Image */}
               <Image
                 src={col.image}
                 alt={col.title}
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                className="object-cover group-hover:scale-103 transition-transform duration-300"
               />
-              <div className={`absolute inset-0 bg-gradient-to-t ${col.bg} opacity-85 group-hover:opacity-90 transition-opacity`} />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
 
               {/* Content */}
               <div className="relative z-10 text-white">
-                <span className="inline-block bg-white/20 backdrop-blur-xs text-amber-300 font-extrabold text-[10px] uppercase px-2 py-0.5 rounded-full mb-1.5 border border-white/20">
+                <span className={`inline-block ${col.bgTag} text-white font-black text-[9px] uppercase px-1.5 py-0.2 rounded mb-1`}>
                   {col.discount}
                 </span>
-                <h3 className="text-lg font-black leading-tight mb-1">
+                <h3 className="text-xs sm:text-sm font-bold leading-tight drop-shadow-2xs">
                   {col.title}
                 </h3>
-                <p className="text-xs text-white/80 font-medium mb-2">
+                <p className="text-[10px] text-slate-200 font-normal line-clamp-1">
                   {col.subtitle}
                 </p>
-                <div className="flex items-center text-xs font-bold text-amber-300 gap-1 group-hover:translate-x-1 transition-transform">
-                  <span>Lihat Koleksi</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </div>
               </div>
             </Link>
           ))}

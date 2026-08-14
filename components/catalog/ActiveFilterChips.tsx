@@ -104,9 +104,9 @@ export function ActiveFilterChips() {
       )}
 
       {freeShippingOnly && (
-        <span className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 px-2.5 py-1 rounded-lg text-xs font-medium">
+        <span className="inline-flex items-center gap-1 bg-pink-50 text-pink-700 dark:bg-pink-950/40 dark:text-pink-300 border border-pink-200 dark:border-pink-800 px-2.5 py-1 rounded-lg text-xs font-medium">
           🚚 Bebas Ongkir
-          <button onClick={() => setFreeShippingOnly(false)} className="text-emerald-500 hover:text-rose-500">
+          <button onClick={() => setFreeShippingOnly(false)} className="text-pink-500 hover:text-rose-500">
             <X className="w-3 h-3" />
           </button>
         </span>

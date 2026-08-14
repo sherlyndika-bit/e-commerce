@@ -8,36 +8,36 @@ interface ProductGridProps {
   products: Product[];
   isLoading?: boolean;
   emptyMessage?: string;
-  columns?: 3 | 4 | 5;
+  columns?: 3 | 4 | 5 | 6;
 }
 
 export function ProductGrid({
   products,
   isLoading = false,
   emptyMessage = 'Belum ada produk yang sesuai dengan filter.',
-  columns = 4,
+  columns = 6,
 }: ProductGridProps) {
   const columnClasses = {
     3: 'grid-cols-2 sm:grid-cols-2 lg:grid-cols-3',
     4: 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4',
     5: 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5',
+    6: 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6',
   };
 
   if (isLoading) {
     return (
-      <div className={`grid ${columnClasses[columns]} gap-3 sm:gap-4 lg:gap-5`}>
-        {Array.from({ length: 8 }).map((_, i) => (
+      <div className={`grid ${columnClasses[columns]} gap-2 sm:gap-2.5`}>
+        {Array.from({ length: 12 }).map((_, i) => (
           <div
             key={i}
-            className="bg-white dark:bg-slate-850 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-3 sm:p-4 animate-pulse flex flex-col justify-between h-[340px]"
+            className="bg-white rounded-lg border border-slate-200 p-2.5 animate-pulse flex flex-col justify-between h-[280px]"
           >
             <div>
-              <div className="aspect-square bg-slate-200 dark:bg-slate-700 rounded-xl mb-3" />
-              <div className="h-3 bg-slate-200 dark:bg-slate-700 rounded w-3/4 mb-2" />
-              <div className="h-4 bg-slate-200 dark:bg-slate-700 rounded w-full mb-1" />
-              <div className="h-4 bg-slate-200 dark:bg-slate-700 rounded w-1/2" />
+              <div className="aspect-square bg-slate-100 rounded mb-2" />
+              <div className="h-3 bg-slate-100 rounded w-3/4 mb-1.5" />
+              <div className="h-3 bg-slate-100 rounded w-1/2 mb-1" />
             </div>
-            <div className="h-8 bg-slate-200 dark:bg-slate-700 rounded-xl mt-3" />
+            <div className="h-4 bg-slate-100 rounded w-2/3" />
           </div>
         ))}
       </div>
@@ -46,14 +46,14 @@ export function ProductGrid({
 
   if (products.length === 0) {
     return (
-      <div className="py-16 text-center bg-white dark:bg-slate-850 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-8 max-w-lg mx-auto">
-        <div className="w-16 h-16 rounded-full bg-brand-50 dark:bg-brand-950/40 text-brand-500 text-3xl flex items-center justify-center mx-auto mb-4">
+      <div className="py-12 text-center bg-white rounded-lg border border-slate-200 p-6 max-w-md mx-auto">
+        <div className="w-12 h-12 rounded-full bg-slate-100 text-slate-400 text-2xl flex items-center justify-center mx-auto mb-3">
           🔍
         </div>
-        <h4 className="text-base font-bold text-slate-800 dark:text-slate-200 mb-1">
+        <h4 className="text-sm font-bold text-slate-800 mb-1">
           Produk Tidak Ditemukan
         </h4>
-        <p className="text-xs text-slate-500 max-w-xs mx-auto">
+        <p className="text-xs text-slate-500">
           {emptyMessage}
         </p>
       </div>
@@ -61,7 +61,7 @@ export function ProductGrid({
   }
 
   return (
-    <div className={`grid ${columnClasses[columns]} gap-3 sm:gap-4 lg:gap-5`}>
+    <div className={`grid ${columnClasses[columns]} gap-2 sm:gap-2.5`}>
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}

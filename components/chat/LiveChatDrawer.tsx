@@ -215,8 +215,8 @@ export function LiveChatDrawer() {
                   <h4 className="font-bold text-xs leading-tight truncate max-w-[170px]">
                     {activeConv?.sellerName}
                   </h4>
-                  <span className="text-[10px] text-emerald-300 flex items-center gap-1 font-semibold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-[10px] text-pink-300 flex items-center gap-1 font-semibold">
+                    <span className="w-1.5 h-1.5 rounded-full bg-pink-400 animate-pulse" />
                     Online (Balas &lt; 5 menit)
                   </span>
                 </div>

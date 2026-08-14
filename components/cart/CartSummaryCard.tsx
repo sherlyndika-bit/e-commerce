@@ -169,7 +169,7 @@ export function CartSummaryCard() {
         </div>
 
         {voucherDiscount > 0 && (
-          <div className="flex justify-between text-emerald-600 dark:text-emerald-400 font-semibold">
+          <div className="flex justify-between text-pink-600 dark:text-pink-400 font-semibold">
             <span>Diskon Voucher ({appliedVoucher?.code}):</span>
             <span>-{formatRupiah(voucherDiscount)}</span>
           </div>
@@ -218,7 +218,7 @@ export function CartSummaryCard() {
 
       {/* Safety Notice */}
       <div className="flex items-center justify-center gap-1.5 text-[11px] text-slate-400 font-medium pt-1">
-        <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
+        <ShieldCheck className="w-3.5 h-3.5 text-pink-500" />
         <span>Jaminan Belanja Aman 100% Bebas Penipuan</span>
       </div>
     </div>

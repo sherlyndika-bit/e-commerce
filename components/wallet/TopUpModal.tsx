@@ -142,7 +142,7 @@ export function TopUpModal({ isOpen, onClose }: TopUpModalProps) {
               isLoading={isProcessing}
               variant="primary"
               size="md"
-              className="w-full bg-emerald-600 hover:bg-emerald-700 font-black"
+              className="w-full bg-pink-600 hover:bg-pink-700 font-black"
             >
               Simulasikan Scan & Bayar Berhasil ✨
             </Button>
@@ -151,7 +151,7 @@ export function TopUpModal({ isOpen, onClose }: TopUpModalProps) {
 
         {step === 'success' && (
           <div className="space-y-4 text-center py-4">
-            <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 dark:bg-emerald-950/60 flex items-center justify-center mx-auto shadow-xs">
+            <div className="w-16 h-16 rounded-full bg-pink-100 text-pink-600 dark:bg-pink-950/60 flex items-center justify-center mx-auto shadow-xs">
               <CheckCircle2 className="w-10 h-10" />
             </div>
 
@@ -163,7 +163,7 @@ export function TopUpModal({ isOpen, onClose }: TopUpModalProps) {
             </div>
 
             <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl text-xs font-bold">
-              Saldo Baru: <span className="text-emerald-600">{formatRupiah(currentUser.coinBalance || 0)}</span>
+              Saldo Baru: <span className="text-pink-600">{formatRupiah(currentUser.coinBalance || 0)}</span>
             </div>
 
             <Button onClick={handleResetAndClose} variant="primary" size="md" className="w-full">
