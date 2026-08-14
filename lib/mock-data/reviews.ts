@@ -1,0 +1,77 @@
+import { ProductReview } from '../types/product';
+
+export const mockReviews: ProductReview[] = [
+  {
+    id: 'rev-1',
+    productId: 'prod-1',
+    userId: 'u-1',
+    userName: 'Rian Pratama',
+    userAvatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=120&auto=format&fit=crop',
+    rating: 5,
+    comment: 'Headphone terenak yang pernah saya pakai! Fitur ANC-nya beneran kedap banget, suara bising kereta MRT langsung hilang total. Suara bass empuk dan detail vokalnya renyah. Garansi resmi TAM aman terdaftar. Packing toko bubble wrap tebel banget!',
+    variantSelected: 'Black Velvet',
+    createdAt: '2026-02-10T14:32:00Z',
+    images: [
+      'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=600&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1484704849700-f032a568e944?q=80&w=600&auto=format&fit=crop',
+    ],
+    helpfulCount: 42,
+    sellerReply: {
+      sellerName: 'TechZone Gadget Store',
+      comment: 'Terima kasih banyak Kak Rian atas ulasan bintang 5 dan foto cantiknya! Senang headphone Sony XM5-nya bisa menemani aktivitas harian. Semoga awet ya Kak!',
+      createdAt: '2026-02-10T15:10:00Z',
+    },
+  },
+  {
+    id: 'rev-2',
+    productId: 'prod-3',
+    userId: 'u-2',
+    userName: 'Dimas Wicaksono',
+    userAvatar: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?q=80&w=120&auto=format&fit=crop',
+    rating: 5,
+    comment: 'Lokal pride tidak pernah mengecewakan! Kulit asli pull-up nya wangi khas kulit premium, insole empuk pas dipakai seharian jalan di kantor maupun riding motor. Ukuran 42 pas di kaki saya (biasanya pakai sneakers 42 juga).',
+    variantSelected: 'Vintage Brown, EU 42 (27.0 cm)',
+    createdAt: '2026-02-08T09:15:00Z',
+    images: [
+      'https://images.unsplash.com/photo-1520639888713-7851133b1ed0?q=80&w=600&auto=format&fit=crop',
+    ],
+    helpfulCount: 28,
+    sellerReply: {
+      sellerName: 'Brodo Footwear Official',
+      comment: 'Mantap Bro Dimas! Terima kasih sudah mendukung produk lokal Bandung. Salam hangat dari seluruh tim Brodo!',
+      createdAt: '2026-02-08T10:05:00Z',
+    },
+  },
+  {
+    id: 'rev-3',
+    productId: 'prod-5',
+    userId: 'u-3',
+    userName: 'Anisa Putri Maharani',
+    userAvatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=120&auto=format&fit=crop',
+    rating: 5,
+    comment: 'Serum penyelamat muka kusam! Sudah botol ke-3 beli di official store. Teksturnya ringan banget cepat meresap, nggak lengket sama sekali. Bekas jerawat kemerahan memudar dalam 2 minggu pemakaian teratur pagi malam. Worth every penny!',
+    variantSelected: '40 ml Jumbo Big Value',
+    createdAt: '2026-02-11T19:20:00Z',
+    helpfulCount: 35,
+    sellerReply: {
+      sellerName: 'Somethinc Beauty ID',
+      comment: 'Yay happy banget dengarnya Kak Anisa! Terima kasih sudah setia menggunakan Somethinc Niacinamide Serum.',
+      createdAt: '2026-02-11T20:00:00Z',
+    },
+  },
+  {
+    id: 'rev-4',
+    productId: 'prod-7',
+    userId: 'u-4',
+    userName: 'Kevin Sanjaya',
+    userAvatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=120&auto=format&fit=crop',
+    rating: 5,
+    comment: 'Keychron K2 Pro terbaik! Suara switch banana-nya beneran thocky dan empuk banget tanpa perlu di-modding lagi. Layout 75% pas banget buat meja kerja minimalis. Koneksi bluetooth ke MacBook lancar tanpa delay.',
+    variantSelected: 'Banana Switch (Early Bump Pro)',
+    createdAt: '2026-02-09T11:45:00Z',
+    images: [
+      'https://images.unsplash.com/photo-1587829741301-dc798b83add3?q=80&w=600&auto=format&fit=crop',
+    ],
+    helpfulCount: 19,
+  },
+];
