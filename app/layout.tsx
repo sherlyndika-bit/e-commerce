@@ -8,6 +8,8 @@ import { MobileNav } from '@/components/layout/MobileNav';
 import { RoleSwitcherBar } from '@/components/ui/RoleSwitcherBar';
 import { ToastContainer } from '@/components/ui/ToastContainer';
 import { LiveChatDrawer } from '@/components/chat/LiveChatDrawer';
+import { AIAssistantDrawer } from '@/components/ai/AIAssistantDrawer';
+import { SocialProofNotification } from '@/components/ui/SocialProofNotification';
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -59,6 +61,12 @@ export default function RootLayout({
 
         {/* Global Live Seller Chat Widget */}
         <LiveChatDrawer />
+
+        {/* Global Smart AI Shopping Assistant */}
+        <AIAssistantDrawer />
+
+        {/* Social Proof Realtime Purchases */}
+        <SocialProofNotification />
 
         {/* Toast Feedback Renderer */}
         <ToastContainer />

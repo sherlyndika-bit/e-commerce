@@ -10,6 +10,7 @@ import { Order } from '@/lib/types/order';
 import { formatRupiah, formatDateIndo } from '@/lib/utils/formatters';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
+import { InvoiceModal } from '@/components/checkout/InvoiceModal';
 import { useToastStore } from '@/lib/store/useToastStore';
 import {
   CheckCircle2,
@@ -21,6 +22,7 @@ import {
   Store,
   ArrowRight,
   ShieldCheck,
+  FileText,
 } from 'lucide-react';
 
 function CheckoutSuccessContent() {
@@ -28,6 +30,7 @@ function CheckoutSuccessContent() {
   const orderId = searchParams.get('order_id');
 
   const [order, setOrder] = useState<Order | null>(null);
+  const [isInvoiceOpen, setIsInvoiceOpen] = useState(false);
   const { addToast } = useToastStore();
 
   useEffect(() => {
@@ -75,20 +78,31 @@ function CheckoutSuccessContent() {
             Terima kasih telah berbelanja di COinaja. Penjual telah menerima notifikasi dan sedang memproses pesananmu.
           </p>
 
-          {/* Order Number Box */}
+          {/* Order Number Box & Invoice Trigger */}
           {order && (
-            <div className="inline-flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs">
-              <span className="text-slate-400">Nomor Pesanan:</span>
-              <strong className="font-mono font-black text-brand-500 text-sm">
-                {order.orderNumber}
-              </strong>
-              <button
-                onClick={handleCopyOrderNumber}
-                className="p-1 text-slate-400 hover:text-brand-500 rounded transition-colors"
-                title="Salin Nomor Pesanan"
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <div className="inline-flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs">
+                <span className="text-slate-400">Nomor Pesanan:</span>
+                <strong className="font-mono font-black text-brand-600 dark:text-brand-400 text-sm">
+                  {order.orderNumber}
+                </strong>
+                <button
+                  onClick={handleCopyOrderNumber}
+                  className="p-1 text-slate-400 hover:text-brand-600 rounded transition-colors"
+                  title="Salin Nomor Pesanan"
+                >
+                  <Copy className="w-3.5 h-3.5" />
+                </button>
+              </div>
+
+              <Button
+                onClick={() => setIsInvoiceOpen(true)}
+                variant="outline"
+                size="sm"
+                leftIcon={<FileText className="w-3.5 h-3.5 text-brand-600" />}
               >
-                <Copy className="w-3.5 h-3.5" />
-              </button>
+                Cetak Invoice PDF
+              </Button>
             </div>
           )}
         </div>
@@ -98,7 +112,7 @@ function CheckoutSuccessContent() {
           <div className="space-y-6">
             <div className="bg-white dark:bg-slate-850 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-6 sm:p-8 shadow-subtle">
               <h2 className="font-extrabold text-base text-slate-900 dark:text-white mb-6 flex items-center gap-2">
-                <Truck className="w-5 h-5 text-brand-500" />
+                <Truck className="w-5 h-5 text-brand-600" />
                 Live Status Pelacakan Pengiriman
               </h2>
 
@@ -110,14 +124,14 @@ function CheckoutSuccessContent() {
                   {/* Store info header */}
                   <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-700">
                     <div className="flex items-center gap-2">
-                      <Store className="w-4 h-4 text-brand-500" />
+                      <Store className="w-4 h-4 text-brand-600" />
                       <span className="font-bold text-xs sm:text-sm text-slate-900 dark:text-white">
                         {storeOrder.sellerName}
                       </span>
                     </div>
                     <div className="text-right">
                       <span className="text-[10px] text-slate-400 block">Kurir:</span>
-                      <span className="font-bold text-xs text-brand-500">
+                      <span className="font-bold text-xs text-brand-600">
                         {storeOrder.shipping.courierName} ({storeOrder.trackingNumber})
                       </span>
                     </div>
@@ -147,7 +161,7 @@ function CheckoutSuccessContent() {
                     <div className="space-y-3 relative before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 before:bg-brand-200 dark:before:bg-brand-900">
                       {storeOrder.statusHistory.map((step, idx) => (
                         <div key={idx} className="flex items-start gap-3 relative z-10">
-                          <div className="w-6 h-6 rounded-full bg-brand-500 text-white flex items-center justify-center text-xs font-black shrink-0 shadow-xs">
+                          <div className="w-6 h-6 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs font-black shrink-0 shadow-xs">
                             ✓
                           </div>
                           <div>
@@ -184,6 +198,13 @@ function CheckoutSuccessContent() {
             </div>
           </div>
         )}
+
+        {/* Printable Tax Invoice Modal */}
+        <InvoiceModal
+          order={order}
+          isOpen={isInvoiceOpen}
+          onClose={() => setIsInvoiceOpen(false)}
+        />
       </div>
     </div>
   );

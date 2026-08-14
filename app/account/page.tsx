@@ -19,6 +19,7 @@ import { ProductGrid } from '@/components/product/ProductGrid';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Modal } from '@/components/ui/Modal';
+import { InvoiceModal } from '@/components/checkout/InvoiceModal';
 import { formatRupiah, formatDateIndo } from '@/lib/utils/formatters';
 import {
   Package,
@@ -44,6 +45,7 @@ function AccountContent() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [wishlistProducts, setWishlistProducts] = useState<Product[]>([]);
   const [selectedOrderForTracking, setSelectedOrderForTracking] = useState<Order | null>(null);
+  const [selectedOrderForInvoice, setSelectedOrderForInvoice] = useState<Order | null>(null);
 
   const { currentUser, addAddress } = useAuthStore();
   const { wishlistIds } = useWishlistStore();
@@ -289,14 +291,21 @@ function AccountContent() {
                           </span>
                         </div>
 
-                        <div className="flex items-center gap-2">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <Button
+                            onClick={() => setSelectedOrderForInvoice(ord)}
+                            variant="secondary"
+                            size="sm"
+                          >
+                            📄 Invoice
+                          </Button>
                           <Button
                             onClick={() => setSelectedOrderForTracking(ord)}
                             variant="outline"
                             size="sm"
-                            leftIcon={<Truck className="w-3.5 h-3.5 text-brand-500" />}
+                            leftIcon={<Truck className="w-3.5 h-3.5 text-brand-600" />}
                           >
-                            Lacak Pengiriman
+                            Lacak
                           </Button>
                           <Button
                             onClick={() => {
@@ -520,6 +529,13 @@ function AccountContent() {
             </div>
           )}
         </Modal>
+
+        {/* Printable Invoice Modal */}
+        <InvoiceModal
+          order={selectedOrderForInvoice}
+          isOpen={selectedOrderForInvoice !== null}
+          onClose={() => setSelectedOrderForInvoice(null)}
+        />
       </div>
     </div>
   );
