@@ -112,7 +112,7 @@ export default function ERPDashboardPage() {
                   dx={-10}
                 />
                 <RechartsTooltip 
-                  formatter={(value: number) => [formatRupiah(value), 'Pendapatan']}
+                  formatter={(value: any) => [formatRupiah(value), 'Pendapatan']}
                   contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
                 />
                 <Line type="monotone" dataKey="revenue" stroke="#4f46e5" strokeWidth={3} dot={{r: 4, fill: '#4f46e5', strokeWidth: 2, stroke: '#fff'}} activeDot={{r: 6}} />

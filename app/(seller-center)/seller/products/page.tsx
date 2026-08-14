@@ -81,7 +81,7 @@ export default function ERPProductsPage() {
                   </td>
                   <td className="px-6 py-4">
                     <div className="text-sm font-medium text-slate-900">{formatRupiah(product.price)}</div>
-                    {product.originalPrice > product.price && (
+                    {product.originalPrice && product.originalPrice > product.price && (
                       <div className="text-xs text-slate-400 line-through mt-0.5">{formatRupiah(product.originalPrice)}</div>
                     )}
                   </td>

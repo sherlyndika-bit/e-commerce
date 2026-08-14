@@ -98,7 +98,7 @@ export default function SuperadminOverviewPage() {
                   dx={-10}
                 />
                 <RechartsTooltip 
-                  formatter={(value: number) => [formatRupiah(value), 'GMV']}
+                  formatter={(value: any) => [formatRupiah(value), 'GMV']}
                   contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
                 />
                 <Line type="monotone" dataKey="gmv" stroke="#10b981" strokeWidth={3} dot={{r: 4, fill: '#10b981', strokeWidth: 2, stroke: '#fff'}} activeDot={{r: 6}} />
@@ -124,7 +124,7 @@ export default function SuperadminOverviewPage() {
                 />
                 <RechartsTooltip 
                   cursor={{fill: '#f1f5f9'}}
-                  formatter={(value: number) => [formatRupiah(value), 'Komisi']}
+                  formatter={(value: any) => [formatRupiah(value), 'Komisi']}
                   contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
                 />
                 <Bar dataKey="commission" fill="#4f46e5" radius={[4, 4, 0, 0]} />
