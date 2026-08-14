@@ -140,7 +140,7 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
             {/* Title */}
             <Link
               href={`/products/${product.slug}`}
-              className="font-bold text-xs sm:text-sm text-slate-900 dark:text-slate-100 hover:text-brand-500 line-clamp-2 leading-snug transition-colors mb-2"
+              className="font-bold text-xs sm:text-sm text-slate-900 dark:text-slate-100 hover:text-brand-600 dark:hover:text-brand-400 line-clamp-2 leading-snug transition-colors mb-2"
               title={product.title}
             >
               {product.title}
@@ -150,7 +150,7 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
           <div>
             {/* Price section */}
             <div className="flex items-baseline gap-1.5 flex-wrap mb-1.5">
-              <span className="text-sm sm:text-base font-extrabold text-brand-500">
+              <span className="text-sm sm:text-base font-extrabold text-brand-600 dark:text-brand-400">
                 {formatRupiah(product.price)}
               </span>
               {product.originalPrice && product.originalPrice > product.price && (

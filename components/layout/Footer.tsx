@@ -57,19 +57,27 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {/* Col 1: Brand Info */}
           <div className="col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-amber-400 flex items-center justify-center text-white font-black text-lg shadow-md">
-                CO
+            <div className="flex items-center gap-2.5 mb-4">
+              <div className="w-9 h-9 rounded-2xl bg-gradient-to-br from-brand-600 via-brand-500 to-indigo-700 flex items-center justify-center text-white font-black text-lg shadow-elevated border border-white/20 relative overflow-hidden">
+                <span className="relative z-10 text-white tracking-tighter">CO</span>
+                <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full bg-coin-400 border border-white flex items-center justify-center text-[7px] font-black text-slate-900 shadow-xs">
+                  🪙
+                </span>
               </div>
-              <span className="text-2xl font-black text-slate-900 dark:text-white">
-                CO<span className="text-brand-500">inaja</span>
-              </span>
+              <div className="flex flex-col">
+                <span className="text-xl font-black tracking-tight text-slate-900 dark:text-white flex items-center">
+                  CO<span className="text-brand-600 dark:text-brand-400">in</span><span className="text-coin-500">aja</span>
+                  <span className="ml-1 px-1.5 py-0.2 rounded-full bg-coin-100 text-coin-700 dark:bg-coin-950/60 dark:text-coin-400 text-[8px] font-black uppercase">
+                    PRO
+                  </span>
+                </span>
+              </div>
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm leading-relaxed mb-4">
               Platform marketplace multi-seller terlengkap di Indonesia. Menghubungkan jutaan pembeli dengan ribuan pengrajin lokal, UMKM, dan distributor resmi di seluruh nusantara.
             </p>
             <div className="text-xs text-slate-400">
-              <p>PT COinaja Niaga Nusantara</p>
+              <p>PT Marketplace Nusantara Digital</p>
               <p>Jakarta Selatan, DKI Jakarta 12730</p>
             </div>
           </div>
@@ -82,7 +90,7 @@ export function Footer() {
             <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-400">
               {mockCategories.slice(0, 5).map((cat) => (
                 <li key={cat.id}>
-                  <Link href={`/categories/${cat.slug}`} className="hover:text-brand-500 transition-colors">
+                  <Link href={`/categories/${cat.slug}`} className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
                     {cat.name}
                   </Link>
                 </li>
@@ -96,11 +104,12 @@ export function Footer() {
               Layanan Pelanggan
             </h5>
             <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-400">
-              <li><Link href="/account?tab=orders" className="hover:text-brand-500">Lacak Pesanan</Link></li>
-              <li><Link href="/cart" className="hover:text-brand-500">Cara Berbelanja</Link></li>
-              <li><Link href="/auth/register?role=seller" className="hover:text-brand-500">Buka Toko Gratis</Link></li>
-              <li><Link href="/seller" className="hover:text-brand-500">Seller Center</Link></li>
-              <li><Link href="/admin" className="hover:text-brand-500">Portal Admin</Link></li>
+              <li><Link href="/vouchers" className="hover:text-brand-600 dark:hover:text-brand-400">🎟️ Pusat Voucher</Link></li>
+              <li><Link href="/account?tab=orders" className="hover:text-brand-600 dark:hover:text-brand-400">Lacak Pesanan</Link></li>
+              <li><Link href="/cart" className="hover:text-brand-600 dark:hover:text-brand-400">Cara Berbelanja</Link></li>
+              <li><Link href="/auth/register" className="hover:text-brand-600 dark:hover:text-brand-400">Buka Toko Gratis</Link></li>
+              <li><Link href="/seller" className="hover:text-brand-600 dark:hover:text-brand-400">Seller Center</Link></li>
+              <li><Link href="/admin" className="hover:text-brand-600 dark:hover:text-brand-400">Portal Admin</Link></li>
             </ul>
           </div>
 

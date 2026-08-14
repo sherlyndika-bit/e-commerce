@@ -36,14 +36,14 @@ export function MobileNav() {
               href={item.href}
               className={`relative flex flex-col items-center py-1 px-2 rounded-xl transition-all ${
                 isActive
-                  ? 'text-brand-500 font-bold'
+                  ? 'text-brand-600 dark:text-brand-400 font-bold'
                   : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium'
               }`}
             >
               <div className="relative">
                 <Icon className={`w-5 h-5 ${isActive ? 'stroke-[2.5]' : 'stroke-2'}`} />
                 {item.badge !== undefined && item.badge > 0 && (
-                  <span className="absolute -top-1.5 -right-2.5 min-w-4 h-4 px-1 rounded-full bg-brand-500 text-white text-[9px] font-black flex items-center justify-center">
+                  <span className="absolute -top-1.5 -right-2.5 min-w-4 h-4 px-1 rounded-full bg-brand-600 text-white text-[9px] font-black flex items-center justify-center">
                     {item.badge}
                   </span>
                 )}
