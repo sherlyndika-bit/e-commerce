@@ -25,24 +25,24 @@ export function CategoryExplorer() {
           </Link>
         </div>
 
-        {/* Dense 12-Category Grid */}
-        <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-y-6 gap-x-2">
+        {/* Balanced 2-Row Category Grid */}
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-y-8 gap-x-4 px-2">
           {mockCategories.map((cat) => (
             <Link
               key={cat.id}
               href={`/categories/${cat.slug}`}
               className="group flex flex-col items-center hover:-translate-y-1 transition-transform duration-200 text-center"
             >
-              <div className="relative w-[52px] h-[52px] rounded-full bg-slate-50 text-slate-500 flex items-center justify-center mb-2 shadow-xs border border-slate-100 transition-all duration-200 group-hover:border-pink-300 group-hover:shadow-md overflow-hidden shrink-0 p-2">
+              <div className="relative w-[72px] h-[72px] rounded-full bg-slate-50 text-slate-500 flex items-center justify-center mb-3 shadow-xs border border-slate-100 transition-all duration-200 group-hover:border-pink-300 group-hover:shadow-md shrink-0 p-2">
                 <img src={cat.imageIcon} alt={cat.name} className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-sm" />
                 
                 {cat.isPopular && (
-                  <span className="absolute -top-1.5 -right-1.5 bg-rose-500 text-white text-[8px] font-black uppercase px-1.5 py-0.5 rounded-full shadow-sm z-10 border-[1.5px] border-white">
+                  <span className="absolute -top-1 -right-2 bg-rose-500 text-white text-[9px] font-black uppercase px-2 py-0.5 rounded-full shadow-sm z-10 border-[1.5px] border-white">
                     Hot
                   </span>
                 )}
               </div>
-              <span className="text-[11px] font-semibold text-slate-600 group-hover:text-pink-600 line-clamp-2 leading-tight px-1">
+              <span className="text-xs font-semibold text-slate-700 group-hover:text-pink-600 line-clamp-2 leading-tight px-1">
                 {cat.name}
               </span>
             </Link>
