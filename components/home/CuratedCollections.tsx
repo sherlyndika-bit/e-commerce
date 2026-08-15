@@ -37,12 +37,15 @@ export function CuratedCollections() {
   ];
 
   return (
-    <section className="py-4 bg-white border-b border-slate-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between mb-3">
-          <h2 className="text-base sm:text-lg font-black text-slate-800 tracking-tight">
-            Koleksi Pilihan Hari Ini
-          </h2>
+    <section className="py-2.5 bg-slate-50">
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between mb-2.5">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-4 bg-pink-600 rounded-full" />
+            <h2 className="text-sm sm:text-base font-black text-slate-800 tracking-tight">
+              Koleksi Pilihan Hari Ini
+            </h2>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">

@@ -18,11 +18,13 @@ export default function StorefrontLayout({
       {/* Global Navigation Header */}
       <Navbar />
 
-      {/* Main Content Body */}
-      <main className="flex-1">{children}</main>
+      {/* Main Content Body - with bottom padding on mobile for MobileNav */}
+      <main className="flex-1 pb-16 lg:pb-0">{children}</main>
 
-      {/* Global Footer */}
-      <Footer />
+      {/* Global Footer - Hidden on mobile like a native app */}
+      <div className="hidden lg:block">
+        <Footer />
+      </div>
 
       {/* Mobile Sticky Bottom Nav */}
       <MobileNav />

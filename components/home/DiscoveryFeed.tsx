@@ -26,13 +26,16 @@ export function DiscoveryFeed() {
   const visibleProducts = filteredProducts.slice(0, visibleCount);
 
   return (
-    <section className="py-4 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-2.5 bg-slate-50">
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         {/* Header & Filter Tabs */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
-          <h2 className="text-base sm:text-lg font-black text-slate-900 tracking-tight">
-            Rekomendasi Untukmu
-          </h2>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 mb-3">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-4 bg-pink-600 rounded-full" />
+            <h2 className="text-sm sm:text-base font-black text-slate-900 tracking-tight">
+              Rekomendasi Untukmu
+            </h2>
+          </div>
 
           {/* Filter Pills */}
           <div className="flex items-center gap-1.5 overflow-x-auto pb-0.5 max-w-full no-scrollbar">

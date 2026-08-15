@@ -235,10 +235,11 @@ export function Navbar() {
               </div>
 
               {/* 3. Right Action Icons & User Profile */}
-              <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+              <div className="flex items-center gap-2 sm:gap-4 shrink-0">
+                {/* Chat button - Visible on mobile & desktop */}
                 <button
                   onClick={toggleChat}
-                  className="relative p-1.5 text-slate-600 hover:text-pink-600 transition-colors hidden sm:flex items-center cursor-pointer"
+                  className="relative p-1.5 text-slate-700 hover:text-pink-600 transition-colors flex items-center cursor-pointer"
                   title="TumbasChat Penjual"
                 >
                   <MessageCircle className="w-5 h-5" />
@@ -249,7 +250,8 @@ export function Navbar() {
                   )}
                 </button>
 
-                <Link href="/account?tab=wishlist" className="relative p-1.5 text-slate-600 hover:text-pink-600 transition-colors hidden sm:flex">
+                {/* Wishlist - Hidden on mobile because it is in the MobileNav bottom bar */}
+                <Link href="/account?tab=wishlist" className="relative p-1.5 text-slate-600 hover:text-pink-600 transition-colors hidden md:flex">
                   <Heart className="w-5 h-5" />
                   {totalWishlistCount > 0 && (
                     <span className="absolute top-0.5 right-0.5 min-w-[15px] h-[15px] px-0.5 rounded-full bg-rose-500 text-white text-[9px] font-black flex items-center justify-center">
@@ -258,8 +260,9 @@ export function Navbar() {
                   )}
                 </Link>
 
+                {/* Cart button */}
                 <div className="relative" onMouseEnter={() => setIsCartHovered(true)} onMouseLeave={() => setIsCartHovered(false)}>
-                  <Link href="/cart" className="relative p-1.5 text-slate-600 hover:text-pink-600 transition-colors flex items-center">
+                  <Link href="/cart" className="relative p-1.5 text-slate-700 hover:text-pink-600 transition-colors flex items-center">
                     <ShoppingCart className="w-5 h-5" />
                     {totalCartCount > 0 && (
                       <span className="absolute top-0.5 right-0.5 min-w-[16px] h-[16px] px-0.5 rounded-full bg-pink-600 text-white text-[9px] font-black flex items-center justify-center">

@@ -39,11 +39,11 @@ export function FlashSaleZone() {
   const padZero = (n: number) => n.toString().padStart(2, '0');
 
   return (
-    <section id="flash-sale" className="py-4 bg-white border-b border-slate-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white border border-slate-200/90 rounded-lg overflow-hidden">
+    <section id="flash-sale" className="py-2.5 bg-slate-50">
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <div className="bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs">
           {/* Header Row with Countdown */}
-          <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-amber-50 to-white border-b border-slate-200/80">
+          <div className="flex items-center justify-between px-3 sm:px-4 py-2.5 bg-gradient-to-r from-amber-50 to-white border-b border-slate-200/80">
             <div className="flex items-center gap-3">
               <h2 className="text-sm sm:text-base font-black text-slate-800 flex items-center gap-1.5 uppercase tracking-tight">
                 <Zap className="w-4 h-4 fill-amber-500 text-amber-500" />

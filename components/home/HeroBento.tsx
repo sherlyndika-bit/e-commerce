@@ -12,7 +12,9 @@ import {
   RiCopperCoinFill,
   RiCoupon2Fill,
   RiArrowLeftSLine,
-  RiArrowRightSLine
+  RiArrowRightSLine,
+  RiGiftFill,
+  RiSparklingFill
 } from 'react-icons/ri';
 import { useToastStore } from '@/lib/store/useToastStore';
 
@@ -77,59 +79,60 @@ export function HeroBento() {
   const slide = heroSlides[currentSlide];
 
   return (
-    <section className="bg-white pt-3 pb-2 border-b border-slate-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main Banner Slider */}
-        <div className="relative h-56 sm:h-72 md:h-80 rounded-lg overflow-hidden group shadow-xs bg-slate-100">
-          {isMounted ? (
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={slide.id}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.25 }}
-                className={`absolute inset-0 ${slide.bgGradient} flex items-center text-white`}
-              >
-                {/* Background Photo */}
-                <div className="absolute inset-0 w-full h-full">
-                  <Image
-                    src={slide.image}
-                    alt={slide.title}
-                    fill
-                    className="object-cover opacity-60"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
-                </div>
-
-                {/* Text content */}
-                <div className="relative z-10 p-5 sm:p-8 md:p-10 max-w-xl">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="bg-pink-600 text-white font-extrabold text-[10px] px-2 py-0.5 rounded">
-                      {slide.tag}
-                    </span>
-                    <span className="bg-amber-400 text-slate-900 font-bold text-[10px] px-2 py-0.5 rounded">
-                      {slide.badge}
-                    </span>
+    <section className="bg-slate-50 pt-2 sm:pt-3 pb-2">
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        {/* Desktop Bento Hero Grid: 8 Cols Main Slider + 4 Cols Side Promos */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-2.5 sm:gap-3">
+          {/* Main Banner Slider (Cols 12 on mobile, Cols 8 on desktop) */}
+          <div className="lg:col-span-8 relative h-48 sm:h-64 lg:h-[300px] rounded-xl overflow-hidden group shadow-2xs bg-slate-900">
+            {isMounted ? (
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={slide.id}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.25 }}
+                  className={`absolute inset-0 ${slide.bgGradient} flex items-center text-white`}
+                >
+                  {/* Background Photo */}
+                  <div className="absolute inset-0 w-full h-full">
+                    <Image
+                      src={slide.image}
+                      alt={slide.title}
+                      fill
+                      className="object-cover opacity-60"
+                      priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent" />
                   </div>
-                  <h1 className="text-xl sm:text-2xl md:text-3xl font-black tracking-tight leading-tight mb-2 drop-shadow-sm">
-                    {slide.title}
-                  </h1>
-                  <p className="text-xs sm:text-sm text-slate-200 mb-4 max-w-md line-clamp-2">
-                    {slide.description}
-                  </p>
-                  <Link href={slide.ctaLink}>
-                    <button className="bg-pink-600 hover:bg-pink-700 text-white px-4 py-1.5 rounded text-xs font-bold transition-all shadow-sm">
-                      {slide.ctaText} →
-                    </button>
-                  </Link>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          ) : (
-            <div className={`absolute inset-0 ${heroSlides[0].bgGradient} flex items-center text-white`}>
-                {/* SSR Placeholder matching first slide */}
+
+                  {/* Text content */}
+                  <div className="relative z-10 p-4 sm:p-7 max-w-lg">
+                    <div className="flex items-center gap-1.5 mb-1.5">
+                      <span className="bg-pink-600 text-white font-extrabold text-[9px] sm:text-[10px] px-2 py-0.5 rounded shadow-2xs">
+                        {slide.tag}
+                      </span>
+                      <span className="bg-amber-400 text-slate-950 font-black text-[9px] sm:text-[10px] px-2 py-0.5 rounded shadow-2xs">
+                        {slide.badge}
+                      </span>
+                    </div>
+                    <h1 className="text-lg sm:text-2xl lg:text-[26px] font-black tracking-tight leading-snug mb-1.5 drop-shadow-sm">
+                      {slide.title}
+                    </h1>
+                    <p className="text-[11px] sm:text-xs text-slate-200 mb-3 max-w-md line-clamp-2 leading-relaxed">
+                      {slide.description}
+                    </p>
+                    <Link href={slide.ctaLink}>
+                      <button className="bg-pink-600 hover:bg-pink-700 text-white px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all shadow-xs hover:scale-105 active:scale-95 cursor-pointer">
+                        {slide.ctaText} →
+                      </button>
+                    </Link>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            ) : (
+              <div className={`absolute inset-0 ${heroSlides[0].bgGradient} flex items-center text-white`}>
                 <div className="absolute inset-0 w-full h-full">
                   <Image
                     src={heroSlides[0].image}
@@ -138,96 +141,149 @@ export function HeroBento() {
                     className="object-cover opacity-60"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent" />
                 </div>
-                <div className="relative z-10 p-5 sm:p-8 md:p-10 max-w-xl">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="bg-pink-600 text-white font-extrabold text-[10px] px-2 py-0.5 rounded">
-                      {heroSlides[0].tag}
-                    </span>
-                    <span className="bg-amber-400 text-slate-900 font-bold text-[10px] px-2 py-0.5 rounded">
-                      {heroSlides[0].badge}
-                    </span>
-                  </div>
-                  <h1 className="text-xl sm:text-2xl md:text-3xl font-black tracking-tight leading-tight mb-2 drop-shadow-sm">
+                <div className="relative z-10 p-4 sm:p-7 max-w-lg">
+                  <span className="bg-pink-600 text-white font-extrabold text-[10px] px-2 py-0.5 rounded">
+                    {heroSlides[0].tag}
+                  </span>
+                  <h1 className="text-lg sm:text-2xl font-black mt-2 mb-1">
                     {heroSlides[0].title}
                   </h1>
-                  <p className="text-xs sm:text-sm text-slate-200 mb-4 max-w-md line-clamp-2">
-                    {heroSlides[0].description}
-                  </p>
-                  <button className="bg-pink-600 text-white px-4 py-1.5 rounded text-xs font-bold shadow-sm">
-                    {heroSlides[0].ctaText} →
-                  </button>
                 </div>
+              </div>
+            )}
+
+            {/* Nav Arrows */}
+            <button
+              onClick={() => setCurrentSlide((prev) => (prev === 0 ? heroSlides.length - 1 : prev - 1))}
+              className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white/80 hover:bg-white flex items-center justify-center text-slate-800 opacity-0 group-hover:opacity-100 transition-opacity shadow-sm z-20 cursor-pointer"
+            >
+              <RiArrowLeftSLine className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => setCurrentSlide((prev) => (prev + 1) % heroSlides.length)}
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white/80 hover:bg-white flex items-center justify-center text-slate-800 opacity-0 group-hover:opacity-100 transition-opacity shadow-sm z-20 cursor-pointer"
+            >
+              <RiArrowRightSLine className="w-5 h-5" />
+            </button>
+
+            {/* Dots */}
+            <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-20">
+              {heroSlides.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentSlide(i)}
+                  className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                    currentSlide === i ? 'w-4 bg-pink-500' : 'w-1.5 bg-white/60 hover:bg-white'
+                  }`}
+                />
+              ))}
             </div>
-          )}
+          </div>
 
-          {/* Nav Arrows */}
-          <button
-            onClick={() => setCurrentSlide((prev) => (prev === 0 ? heroSlides.length - 1 : prev - 1))}
-            className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white/80 hover:bg-white flex items-center justify-center text-slate-800 opacity-0 group-hover:opacity-100 transition-opacity shadow-sm z-20"
-          >
-            <RiArrowLeftSLine className="w-5 h-5" />
-          </button>
-          <button
-            onClick={() => setCurrentSlide((prev) => (prev + 1) % heroSlides.length)}
-            className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white/80 hover:bg-white flex items-center justify-center text-slate-800 opacity-0 group-hover:opacity-100 transition-opacity shadow-sm z-20"
-          >
-            <RiArrowRightSLine className="w-5 h-5" />
-          </button>
+          {/* Right Stacked Promos (Hidden on mobile, Shown on desktop to make the screen rich & active) */}
+          <div className="hidden lg:flex lg:col-span-4 flex-col gap-2.5">
+            {/* Promo Card 1 */}
+            <Link
+              href="/vouchers"
+              className="relative h-[145px] rounded-xl overflow-hidden bg-gradient-to-br from-pink-900 to-rose-950 p-4 text-white flex flex-col justify-between group shadow-2xs border border-pink-900/40 hover:border-pink-500 transition-colors"
+            >
+              <div className="absolute right-0 top-0 w-36 h-full opacity-30 group-hover:scale-110 transition-transform">
+                <Image
+                  src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=400&auto=format&fit=crop"
+                  alt="Voucher"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative z-10">
+                <span className="inline-flex items-center gap-1 bg-amber-400 text-slate-950 font-black text-[9px] px-1.5 py-0.5 rounded shadow-2xs mb-1">
+                  <RiGiftFill className="w-3 h-3" /> VOUCHER PENGGUNA BARU
+                </span>
+                <h3 className="font-black text-sm text-white leading-tight">
+                  Klaim Diskon Rp50.000 + 10.000 Koin
+                </h3>
+                <p className="text-[11px] text-pink-200 mt-0.5">
+                  Khusus transaksi pertama di TumbasCO
+                </p>
+              </div>
+              <span className="relative z-10 inline-flex items-center gap-1 text-[11px] font-bold text-amber-300 group-hover:text-amber-200">
+                Klaim Sekarang →
+              </span>
+            </Link>
 
-          {/* Dots */}
-          <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-20">
-            {heroSlides.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrentSlide(i)}
-                className={`h-1.5 rounded-full transition-all ${
-                  currentSlide === i ? 'w-4 bg-pink-500' : 'w-1.5 bg-white/60 hover:bg-white'
-                }`}
-              />
-            ))}
+            {/* Promo Card 2 */}
+            <Link
+              href="/products?free_shipping=true"
+              className="relative h-[145px] rounded-xl overflow-hidden bg-gradient-to-br from-slate-900 to-indigo-950 p-4 text-white flex flex-col justify-between group shadow-2xs border border-slate-800 hover:border-indigo-500 transition-colors"
+            >
+              <div className="absolute right-0 top-0 w-36 h-full opacity-30 group-hover:scale-110 transition-transform">
+                <Image
+                  src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=400&auto=format&fit=crop"
+                  alt="Bebas Ongkir"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative z-10">
+                <span className="inline-flex items-center gap-1 bg-pink-500 text-white font-black text-[9px] px-1.5 py-0.5 rounded shadow-2xs mb-1">
+                  <RiTruckFill className="w-3 h-3" /> BEBAS ONGKIR XTRA
+                </span>
+                <h3 className="font-black text-sm text-white leading-tight">
+                  Gratis Ongkos Kirim Se-Indonesia
+                </h3>
+                <p className="text-[11px] text-slate-300 mt-0.5">
+                  Tanpa minimum belanja ke seluruh pelosok
+                </p>
+              </div>
+              <span className="relative z-10 inline-flex items-center gap-1 text-[11px] font-bold text-pink-300 group-hover:text-pink-200">
+                Belanja Sekarang →
+              </span>
+            </Link>
           </div>
         </div>
 
-        {/* Minimalist Single-Tone Quick Actions */}
-        <div className="mt-4 grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-4 pt-2">
-          {quickPills.map((pill) => {
-            const isButton = pill.href === '#';
-            const Icon = pill.icon;
-            const InnerContent = (
-              <div className="flex flex-col items-center justify-center text-center group cursor-pointer w-full">
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-pink-50 flex items-center justify-center text-pink-500 mb-2 transition-all duration-200 group-hover:bg-pink-500 group-hover:text-white group-hover:shadow-md border border-pink-100">
-                  <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+        {/* Compact Quick Actions Strip */}
+        <div className="mt-2.5 bg-white rounded-xl border border-slate-200/90 shadow-2xs p-2.5 sm:p-3">
+          <div className="grid grid-cols-6 gap-1 sm:gap-2">
+            {quickPills.map((pill) => {
+              const isButton = pill.href === '#';
+              const Icon = pill.icon;
+              const InnerContent = (
+                <div className="flex flex-col items-center justify-center text-center group cursor-pointer w-full py-1">
+                  <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-pink-50 flex items-center justify-center text-pink-600 mb-1.5 transition-all duration-200 group-hover:bg-pink-600 group-hover:text-white group-hover:scale-105 border border-pink-100/80 shadow-2xs">
+                    <Icon className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
+                  </div>
+                  <span className="text-[10px] sm:text-xs font-semibold text-slate-700 group-hover:text-pink-600 leading-tight truncate max-w-full px-0.5">
+                    {pill.label}
+                  </span>
                 </div>
-                <span className="text-[11px] sm:text-xs font-semibold text-slate-700 group-hover:text-pink-700 leading-tight px-1">
-                  {pill.label}
-                </span>
-              </div>
-            );
+              );
 
-            if (isButton) {
+              if (isButton) {
+                return (
+                  <button
+                    key={pill.label}
+                    onClick={pill.onClick}
+                    className="focus:outline-none"
+                  >
+                    {InnerContent}
+                  </button>
+                );
+              }
+
               return (
-                <button
+                <Link
                   key={pill.label}
-                  onClick={pill.onClick}
+                  href={pill.href}
                   className="focus:outline-none"
                 >
                   {InnerContent}
-                </button>
+                </Link>
               );
-            }
-
-            return (
-              <Link
-                key={pill.label}
-                href={pill.href}
-                className="focus:outline-none"
-              >
-                {InnerContent}
-              </Link>
-            );
-          })}
+            })}
+          </div>
         </div>
       </div>
     </section>
