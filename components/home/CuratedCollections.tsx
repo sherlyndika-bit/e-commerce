@@ -37,19 +37,20 @@ export function CuratedCollections() {
   ];
 
   return (
-    <section className="py-2.5 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between mb-2.5">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-4 bg-pink-600 rounded-full" />
-            <h2 className="text-sm sm:text-base font-black text-slate-800 tracking-tight">
-              Koleksi Pilihan Hari Ini
-            </h2>
+    <section className="sm:py-2.5 bg-slate-50">
+      <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
+        <div className="bg-white border-y sm:border border-slate-200/90 sm:rounded-xl shadow-none sm:shadow-2xs p-3.5 sm:p-5">
+          <div className="flex items-center justify-between mb-3.5">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-4 bg-pink-600 rounded-full" />
+              <h2 className="text-sm sm:text-base font-black text-slate-800 tracking-tight">
+                Koleksi Pilihan Hari Ini
+              </h2>
+            </div>
           </div>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          {collections.map((col) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {collections.map((col) => (
             <Link
               key={col.id}
               href={col.link}
@@ -78,6 +79,7 @@ export function CuratedCollections() {
               </div>
             </Link>
           ))}
+        </div>
         </div>
       </div>
     </section>

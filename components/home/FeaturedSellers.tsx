@@ -11,27 +11,28 @@ import { formatCompactNumber } from '@/lib/utils/formatters';
 
 export function FeaturedSellers() {
   return (
-    <section className="py-2.5 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-2.5">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-4 bg-pink-600 rounded-full" />
-            <h2 className="text-sm sm:text-base font-black text-slate-900 tracking-tight">
-              Official Store & Toko Pilihan
-            </h2>
+    <section className="sm:py-2.5 bg-slate-50">
+      <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
+        <div className="bg-white border-y sm:border border-slate-200/90 sm:rounded-xl shadow-none sm:shadow-2xs p-3.5 sm:p-5">
+          {/* Header */}
+          <div className="flex items-center justify-between mb-3.5">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-4 bg-pink-600 rounded-full" />
+              <h2 className="text-sm sm:text-base font-black text-slate-900 tracking-tight">
+                Official Store & Toko Pilihan
+              </h2>
+            </div>
+            <Link
+              href="/shops/brodo-official"
+              className="text-xs font-bold text-pink-600 hover:text-pink-700 flex items-center gap-1 group"
+            >
+              Lihat Semua Toko
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
           </div>
-          <Link
-            href="/shops/brodo-official"
-            className="text-xs font-bold text-pink-600 hover:text-pink-700 flex items-center gap-1 group"
-          >
-            Lihat Semua Toko
-            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-          </Link>
-        </div>
 
-        {/* Sellers Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {/* Sellers Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {mockSellers.slice(0, 4).map((seller) => (
             <Link
               key={seller.id}
@@ -99,6 +100,7 @@ export function FeaturedSellers() {
               </div>
             </Link>
           ))}
+        </div>
         </div>
       </div>
     </section>

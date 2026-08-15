@@ -10,9 +10,9 @@ export function CategoryExplorer() {
   const { addToast } = useToastStore();
 
   return (
-    <section className="py-2.5 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-xl border border-slate-200/90 shadow-2xs p-3.5 sm:p-5">
+    <section className="sm:py-2.5 bg-slate-50">
+      <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
+        <div className="bg-white sm:rounded-xl border-y sm:border border-slate-200/90 shadow-none sm:shadow-2xs p-3.5 sm:p-5">
           {/* Header Row */}
           <div className="flex items-center justify-between mb-3.5 pb-2.5 border-b border-slate-100">
             <div className="flex items-center gap-2">

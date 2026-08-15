@@ -245,7 +245,7 @@ export function HeroBento() {
         </div>
 
         {/* Compact Quick Actions Strip */}
-        <div className="mt-2.5 mx-2 sm:mx-0 bg-white rounded-xl border border-slate-200/90 shadow-2xs p-2.5 sm:p-3">
+        <div className="mt-0 sm:mt-2.5 mx-0 bg-white sm:rounded-xl border-y sm:border border-slate-200/90 shadow-none sm:shadow-2xs p-2.5 sm:p-3">
           <div className="grid grid-cols-6 gap-1 sm:gap-2">
             {quickPills.map((pill) => {
               const isButton = pill.href === '#';

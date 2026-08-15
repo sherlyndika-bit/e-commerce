@@ -8,7 +8,7 @@ import { DiscoveryFeed } from '@/components/home/DiscoveryFeed';
 
 export default function HomePage() {
   return (
-    <div className="bg-slate-50 space-y-1 pb-6">
+    <div className="bg-slate-100 sm:bg-slate-50 space-y-2 sm:space-y-1 pb-6">
       {/* 1. Main Banner Slider & Quick Action Shortcuts */}
       <HeroBento />
 
