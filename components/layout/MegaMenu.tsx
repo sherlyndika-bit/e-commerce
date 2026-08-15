@@ -5,18 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { mockCategories } from '@/lib/mock-data/categories';
 import {
-  Smartphone,
-  Shirt,
-  ShoppingBag,
-  Sparkles,
-  Laptop,
-  Home,
-  Utensils,
-  Trophy,
-  Heart,
-  Gamepad2,
-  Car,
-  BookOpen,
   ChevronRight,
   ArrowRight,
 } from 'lucide-react';
@@ -31,37 +19,7 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
 
   if (!isOpen) return null;
 
-  const getCategoryIcon = (iconName: string) => {
-    const props = { className: 'w-4 h-4' };
-    switch (iconName) {
-      case 'Smartphone':
-        return <Smartphone {...props} />;
-      case 'Shirt':
-        return <Shirt {...props} />;
-      case 'ShoppingBag':
-        return <ShoppingBag {...props} />;
-      case 'Sparkles':
-        return <Sparkles {...props} />;
-      case 'Laptop':
-        return <Laptop {...props} />;
-      case 'Home':
-        return <Home {...props} />;
-      case 'Utensils':
-        return <Utensils {...props} />;
-      case 'Trophy':
-        return <Trophy {...props} />;
-      case 'Heart':
-        return <Heart {...props} />;
-      case 'Gamepad2':
-        return <Gamepad2 {...props} />;
-      case 'Car':
-        return <Car {...props} />;
-      case 'BookOpen':
-        return <BookOpen {...props} />;
-      default:
-        return <ShoppingBag {...props} />;
-    }
-  };
+
 
   return (
     <div
@@ -90,8 +48,8 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
-                    <span className={isSelected ? 'text-pink-600' : 'text-slate-400'}>
-                      {getCategoryIcon(cat.iconName)}
+                    <span className="w-5 h-5 shrink-0 relative">
+                      <img src={cat.imageIcon} alt="" className="w-full h-full object-contain drop-shadow-sm" />
                     </span>
                     <span className="truncate">{cat.name}</span>
                   </div>
@@ -109,7 +67,9 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
             <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
               <div>
                 <h4 className="text-base font-extrabold text-slate-900 flex items-center gap-2">
-                  {getCategoryIcon(activeCategory.iconName)}
+                  <div className="w-6 h-6 shrink-0 bg-slate-50 rounded-full p-1 border border-slate-100 flex items-center justify-center">
+                    <img src={activeCategory.imageIcon} alt="" className="w-full h-full object-contain drop-shadow-sm" />
+                  </div>
                   {activeCategory.name}
                 </h4>
                 <p className="text-xs text-slate-500 mt-0.5">

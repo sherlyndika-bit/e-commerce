@@ -81,7 +81,7 @@ export interface Category {
   id: string;
   slug: string;
   name: string;
-  iconName: string; // Lucide icon identifier
+  imageIcon: string; // Transparent PNG icon URL
   description: string;
   bannerImage: string;
   subcategories: {

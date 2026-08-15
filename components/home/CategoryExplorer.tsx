@@ -33,8 +33,8 @@ export function CategoryExplorer() {
               href={`/categories/${cat.slug}`}
               className="group flex flex-col items-center hover:-translate-y-1 transition-transform duration-200 text-center"
             >
-              <div className="relative w-[52px] h-[52px] rounded-full bg-pink-50 text-pink-500 flex items-center justify-center mb-2 shadow-xs border border-pink-100 transition-all duration-200 group-hover:border-pink-400 group-hover:shadow-md overflow-hidden shrink-0">
-                <img src={cat.bannerImage} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+              <div className="relative w-[52px] h-[52px] rounded-full bg-slate-50 text-slate-500 flex items-center justify-center mb-2 shadow-xs border border-slate-100 transition-all duration-200 group-hover:border-pink-300 group-hover:shadow-md overflow-hidden shrink-0 p-2">
+                <img src={cat.imageIcon} alt={cat.name} className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-sm" />
                 
                 {cat.isPopular && (
                   <span className="absolute -top-1.5 -right-1.5 bg-rose-500 text-white text-[8px] font-black uppercase px-1.5 py-0.5 rounded-full shadow-sm z-10 border-[1.5px] border-white">

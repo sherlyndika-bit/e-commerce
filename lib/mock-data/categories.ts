@@ -5,7 +5,7 @@ export const mockCategories: Category[] = [
     id: 'cat-1',
     slug: 'elektronik-gadget',
     name: 'Elektronik & Gadget',
-    iconName: 'Smartphone',
+    imageIcon: 'https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Mobile%20phone/3D/mobile_phone_3d.png',
     description: 'Smartphones, wearables, audio, dan perlengkapan gadget terbaru garansi resmi.',
     bannerImage: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -22,7 +22,7 @@ export const mockCategories: Category[] = [
     id: 'cat-2',
     slug: 'fashion-pria',
     name: 'Fashion Pria',
-    iconName: 'Shirt',
+    imageIcon: 'https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/T-shirt/3D/t-shirt_3d.png',
     description: 'Pakaian pria, sepatu sneakers, jaket, dan aksesoris gaya casual hingga formal.',
     bannerImage: 'https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -39,7 +39,7 @@ export const mockCategories: Category[] = [
     id: 'cat-3',
     slug: 'fashion-wanita',
     name: 'Fashion Wanita',
-    iconName: 'ShoppingBag',
+    imageIcon: 'https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Dress/3D/dress_3d.png',
     description: 'Dress, atasan wanita, tas branded, hijab, dan alas kaki modis terkini.',
     bannerImage: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -56,7 +56,7 @@ export const mockCategories: Category[] = [
     id: 'cat-4',
     slug: 'kecantikan-perawatan',
     name: 'Kecantikan & Perawatan',
-    iconName: 'Sparkles',
+    imageIcon: 'https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Lipstick/3D/lipstick_3d.png',
     description: 'Skincare original, serum pencerah, sunscreen, makeup, dan perawatan tubuh BPOM.',
     bannerImage: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -73,7 +73,7 @@ export const mockCategories: Category[] = [
     id: 'cat-5',
     slug: 'komputer-laptop',
     name: 'Komputer & Laptop',
-    iconName: 'Laptop',
+    imageIcon: 'https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Laptop/3D/laptop_3d.png',
     description: 'Laptop kerja, gaming PC, monitor, mechanical keyboard, dan aksesoris PC.',
     bannerImage: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -90,7 +90,7 @@ export const mockCategories: Category[] = [
     id: 'cat-6',
     slug: 'rumah-tangga',
     name: 'Rumah Tangga & Perabotan',
-    iconName: 'Home',
+    imageIcon: 'https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Bed/3D/bed_3d.png',
     description: 'Dekorasi rumah estetik, perabot minimalis, peralatan dapur, dan sprei lembut.',
     bannerImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -106,7 +106,7 @@ export const mockCategories: Category[] = [
     id: 'cat-7',
     slug: 'makanan-minuman',
     name: 'Makanan & Minuman',
-    iconName: 'Utensils',
+    imageIcon: 'https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Hamburger/3D/hamburger_3d.png',
     description: 'Camilan lokal nusantara, biji kopi artisan, frozen food, dan minuman sehat.',
     bannerImage: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -122,7 +122,7 @@ export const mockCategories: Category[] = [
     id: 'cat-8',
     slug: 'olahraga-outdoor',
     name: 'Olahraga & Outdoor',
-    iconName: 'Trophy',
+    imageIcon: 'https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Soccer%20ball/3D/soccer_ball_3d.png',
     description: 'Peralatan gym rumahan, jersey, raket badminton, matras yoga, dan perlengkapan hiking.',
     bannerImage: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -138,7 +138,7 @@ export const mockCategories: Category[] = [
     id: 'cat-9',
     slug: 'ibu-bayi',
     name: 'Ibu & Bayi',
-    iconName: 'Heart',
+    imageIcon: 'https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Baby%20bottle/3D/baby_bottle_3d.png',
     description: 'Popok higienis, susu formula, pakaian bayi lembut, dan perlengkapan stroller.',
     bannerImage: 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -154,7 +154,7 @@ export const mockCategories: Category[] = [
     id: 'cat-10',
     slug: 'hobi-koleksi',
     name: 'Hobi & Koleksi',
-    iconName: 'Gamepad2',
+    imageIcon: 'https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Video%20game/3D/video_game_3d.png',
     description: 'Action figure, diecast, kartu TCG, alat musik, dan peralatan fotografi.',
     bannerImage: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -170,7 +170,7 @@ export const mockCategories: Category[] = [
     id: 'cat-11',
     slug: 'otomotif',
     name: 'Otomotif & Aksesoris',
-    iconName: 'Car',
+    imageIcon: 'https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Automobile/3D/automobile_3d.png',
     description: 'Helm SNI, oli motor/mobil, dashcam, interkom bluetooth, dan car care kit.',
     bannerImage: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -186,7 +186,7 @@ export const mockCategories: Category[] = [
     id: 'cat-12',
     slug: 'buku-alat-tulis',
     name: 'Buku & Alat Tulis',
-    iconName: 'BookOpen',
+    imageIcon: 'https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Books/3D/books_3d.png',
     description: 'Buku best-seller, novel inspiratif, buku bisnis/self-improvement, binder & pulpen.',
     bannerImage: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=800&auto=format&fit=crop',
     subcategories: [
