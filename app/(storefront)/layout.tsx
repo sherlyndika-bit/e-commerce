@@ -1,7 +1,6 @@
 import React from 'react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
-import { PromoTicker } from '@/components/layout/PromoTicker';
 import { MobileNav } from '@/components/layout/MobileNav';
 import { FloatingChat } from '@/components/chat/FloatingChat';
 
@@ -12,11 +11,6 @@ export default function StorefrontLayout({
 }) {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Promo Marquee Ticker - Hidden on mobile for native app feel */}
-      <div className="hidden sm:block">
-        <PromoTicker />
-      </div>
-
       {/* Global Navigation Header */}
       <Navbar />
 
