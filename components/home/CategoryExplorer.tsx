@@ -25,15 +25,15 @@ export function CategoryExplorer() {
           </Link>
         </div>
 
-        {/* Balanced Category List - Tight & Centered */}
-        <div className="flex flex-wrap justify-center gap-x-4 sm:gap-x-8 lg:gap-x-12 gap-y-8 px-2 max-w-5xl mx-auto">
+        {/* Balanced Category List - Strict 6-col Grid for Desktop */}
+        <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-6 gap-x-2 sm:gap-x-6 lg:gap-x-8 gap-y-8 px-2 max-w-4xl mx-auto justify-items-center">
           {mockCategories.map((cat) => (
             <Link
               key={cat.id}
               href={`/categories/${cat.slug}`}
               className="group flex flex-col items-center hover:-translate-y-1 transition-transform duration-200 text-center w-[72px] sm:w-[80px]"
             >
-              <div className="relative w-[72px] h-[72px] rounded-full bg-pink-50 text-pink-500 flex items-center justify-center mb-3 shadow-xs border border-pink-100 transition-all duration-200 group-hover:border-pink-300 group-hover:shadow-md shrink-0 p-2">
+              <div className="relative w-[72px] h-[72px] rounded-full bg-pink-50 text-pink-500 flex items-center justify-center mb-3 shadow-xs border border-pink-100 transition-all duration-200 group-hover:border-pink-300 group-hover:shadow-md shrink-0 p-1.5">
                 <img src={cat.imageIcon} alt={cat.name} className="w-full h-full object-contain mix-blend-multiply drop-shadow-sm group-hover:scale-110 transition-transform duration-300" />
                 
                 {cat.isPopular && (

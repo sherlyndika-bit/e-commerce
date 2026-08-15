@@ -5,7 +5,7 @@ export const mockCategories: Category[] = [
     id: 'cat-1',
     slug: 'elektronik-gadget',
     name: 'Elektronik & Gadget',
-    imageIcon: 'https://pngimg.com/uploads/iphone_14/iphone_14_PNG22.png',
+    imageIcon: 'https://pngimg.com/uploads/smartphone/smartphone_PNG8520.png',
     description: 'Smartphones, wearables, audio, dan perlengkapan gadget terbaru garansi resmi.',
     bannerImage: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -22,7 +22,7 @@ export const mockCategories: Category[] = [
     id: 'cat-2',
     slug: 'fashion-pria',
     name: 'Fashion Pria',
-    imageIcon: 'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
+    imageIcon: 'https://pngimg.com/uploads/men_shoes/men_shoes_PNG7475.png',
     description: 'Pakaian pria, sepatu sneakers, jaket, dan aksesoris gaya casual hingga formal.',
     bannerImage: 'https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -39,7 +39,7 @@ export const mockCategories: Category[] = [
     id: 'cat-3',
     slug: 'fashion-wanita',
     name: 'Fashion Wanita',
-    imageIcon: 'https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg',
+    imageIcon: 'https://pngimg.com/uploads/dress/dress_PNG144.png',
     description: 'Dress, atasan wanita, tas branded, hijab, dan alas kaki modis terkini.',
     bannerImage: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -56,7 +56,7 @@ export const mockCategories: Category[] = [
     id: 'cat-4',
     slug: 'kecantikan-perawatan',
     name: 'Kecantikan & Perawatan',
-    imageIcon: 'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg',
+    imageIcon: 'https://pngimg.com/uploads/perfume/perfume_PNG10287.png',
     description: 'Skincare original, serum pencerah, sunscreen, makeup, dan perawatan tubuh BPOM.',
     bannerImage: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -73,7 +73,7 @@ export const mockCategories: Category[] = [
     id: 'cat-5',
     slug: 'komputer-laptop',
     name: 'Komputer & Laptop',
-    imageIcon: 'https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg',
+    imageIcon: 'https://pngimg.com/uploads/laptop/laptop_PNG5904.png',
     description: 'Laptop kerja, gaming PC, monitor, mechanical keyboard, dan aksesoris PC.',
     bannerImage: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -122,7 +122,7 @@ export const mockCategories: Category[] = [
     id: 'cat-8',
     slug: 'olahraga-outdoor',
     name: 'Olahraga & Outdoor',
-    imageIcon: 'https://pngimg.com/uploads/running_shoes/running_shoes_PNG5816.png',
+    imageIcon: 'https://pngimg.com/uploads/football_boots/football_boots_PNG52.png',
     description: 'Peralatan gym rumahan, jersey, raket badminton, matras yoga, dan perlengkapan hiking.',
     bannerImage: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -154,7 +154,7 @@ export const mockCategories: Category[] = [
     id: 'cat-10',
     slug: 'hobi-koleksi',
     name: 'Hobi & Koleksi',
-    imageIcon: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+    imageIcon: 'https://pngimg.com/uploads/gamepad/gamepad_PNG63.png',
     description: 'Action figure, diecast, kartu TCG, alat musik, dan peralatan fotografi.',
     bannerImage: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -170,7 +170,7 @@ export const mockCategories: Category[] = [
     id: 'cat-11',
     slug: 'otomotif',
     name: 'Otomotif & Aksesoris',
-    imageIcon: 'https://pngimg.com/uploads/motorcycle/motorcycle_PNG3146.png',
+    imageIcon: 'https://pngimg.com/uploads/bicycle/bicycle_PNG5393.png',
     description: 'Helm SNI, oli motor/mobil, dashcam, interkom bluetooth, dan car care kit.',
     bannerImage: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=800&auto=format&fit=crop',
     subcategories: [
