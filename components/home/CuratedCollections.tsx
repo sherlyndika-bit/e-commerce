@@ -37,7 +37,7 @@ export function CuratedCollections() {
   ];
 
   return (
-    <section className="sm:py-2.5 bg-slate-50">
+    <section className="sm:py-1 bg-slate-50">
       <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
         <div className="bg-white border-y sm:border border-slate-200/90 sm:rounded-xl shadow-none sm:shadow-2xs p-3.5 sm:p-5">
           <div className="flex items-center justify-between mb-3.5">

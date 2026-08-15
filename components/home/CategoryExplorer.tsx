@@ -10,7 +10,7 @@ export function CategoryExplorer() {
   const { addToast } = useToastStore();
 
   return (
-    <section className="sm:py-2.5 bg-slate-50">
+    <section className="sm:py-1 bg-slate-50">
       <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
         <div className="bg-white sm:rounded-xl border-y sm:border border-slate-200/90 shadow-none sm:shadow-2xs p-3.5 sm:p-5">
           {/* Header Row */}
@@ -30,8 +30,8 @@ export function CategoryExplorer() {
             </Link>
           </div>
 
-          {/* Balanced Category Grid - Strict 6-col on Desktop, 4-col on Mobile */}
-          <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-6 gap-x-2 sm:gap-x-4 lg:gap-x-6 gap-y-4 sm:gap-y-5 justify-items-center">
+          {/* Balanced Category Grid - Clustered tightly on Desktop */}
+          <div className="flex flex-wrap justify-center sm:justify-around lg:justify-center gap-x-4 gap-y-4 sm:gap-x-6 lg:gap-x-12 sm:gap-y-6">
             {mockCategories.map((cat) => (
               <Link
                 key={cat.id}

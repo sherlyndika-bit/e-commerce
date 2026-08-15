@@ -39,7 +39,7 @@ export function FlashSaleZone() {
   const padZero = (n: number) => n.toString().padStart(2, '0');
 
   return (
-    <section id="flash-sale" className="sm:py-2.5 bg-slate-50">
+    <section id="flash-sale" className="sm:py-1 bg-slate-50">
       <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
         <div className="bg-white border-y sm:border border-slate-200/90 sm:rounded-xl overflow-hidden shadow-none sm:shadow-2xs">
           {/* Header Row with Countdown */}

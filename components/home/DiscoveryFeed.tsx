@@ -26,7 +26,7 @@ export function DiscoveryFeed() {
   const visibleProducts = filteredProducts.slice(0, visibleCount);
 
   return (
-    <section className="sm:py-2.5 bg-slate-50">
+    <section className="sm:py-1 bg-slate-50">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         {/* Header & Filter Tabs */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 mb-3">

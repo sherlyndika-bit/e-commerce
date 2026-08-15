@@ -79,7 +79,7 @@ export function HeroBento() {
   const slide = heroSlides[currentSlide];
 
   return (
-    <section className="bg-slate-50 pt-0 sm:pt-3 pb-2">
+    <section className="bg-slate-50 pt-0 sm:pt-2 pb-0">
       <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
         {/* Desktop Bento Hero Grid: 8 Cols Main Slider + 4 Cols Side Promos */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 sm:gap-3">
@@ -246,7 +246,7 @@ export function HeroBento() {
 
         {/* Compact Quick Actions Strip */}
         <div className="mt-0 sm:mt-2.5 mx-0 bg-white sm:rounded-xl border-y sm:border border-slate-200/90 shadow-none sm:shadow-2xs p-2.5 sm:p-3">
-          <div className="grid grid-cols-6 gap-1 sm:gap-2">
+          <div className="flex justify-between sm:justify-center sm:gap-16 lg:gap-24 px-2 sm:px-0">
             {quickPills.map((pill) => {
               const isButton = pill.href === '#';
               const Icon = pill.icon;
