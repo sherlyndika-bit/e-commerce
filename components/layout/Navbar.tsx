@@ -120,15 +120,15 @@ export function Navbar() {
           </div>
 
           {/* MAIN NAVIGATION HEADER */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
-            <div className="flex items-center justify-between gap-4 sm:gap-6">
+          <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 py-2">
+            <div className="flex items-center justify-between gap-2.5 sm:gap-6">
               {/* 1. Logo & Kategori Button */}
-              <div className="flex items-center gap-3 shrink-0">
+              <div className="flex items-center gap-2 sm:gap-3 shrink-0">
                 <Link href="/" className="flex items-center gap-2 group">
-                  <div className="w-8 h-8 rounded-lg bg-pink-600 flex items-center justify-center text-white shadow-2xs">
+                  <div className="w-8 h-8 rounded-lg bg-pink-600 flex items-center justify-center text-white shadow-2xs shrink-0">
                     <ShoppingBag className="w-4.5 h-4.5" />
                   </div>
-                  <div className="flex flex-col">
+                  <div className="hidden sm:flex flex-col">
                     <span className="text-xl font-black tracking-tight text-pink-600">
                       TumbasCO
                     </span>
@@ -147,7 +147,7 @@ export function Navbar() {
 
               {/* 2. Search Bar & Trending Keywords */}
               <div className="flex-1 max-w-3xl relative flex flex-col gap-1" ref={searchRef}>
-                <form onSubmit={handleSearchSubmit} className="relative flex w-full h-9 border border-slate-300 focus-within:border-pink-600 rounded-md overflow-hidden bg-white transition-colors">
+                <form onSubmit={handleSearchSubmit} className="relative flex w-full h-9 border border-slate-300 focus-within:border-pink-600 rounded-full sm:rounded-md overflow-hidden bg-slate-100 sm:bg-white transition-colors">
                   <input
                     type="text"
                     value={searchQuery}
@@ -156,18 +156,18 @@ export function Navbar() {
                       setIsSearchOpen(true);
                     }}
                     onFocus={() => setIsSearchOpen(true)}
-                    placeholder="Cari barang, brand, atau kategori di TumbasCO..."
-                    className="w-full h-full pl-3 pr-10 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none"
+                    placeholder="Cari di TumbasCO..."
+                    className="w-full h-full pl-3.5 pr-10 text-xs sm:text-sm text-slate-900 placeholder:text-slate-500 bg-transparent focus:outline-none"
                   />
                   
                   {searchQuery && (
-                    <button type="button" onClick={() => setSearchQuery('')} className="absolute right-12 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1">
+                    <button type="button" onClick={() => setSearchQuery('')} className="absolute right-10 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1">
                       <X className="w-3.5 h-3.5" />
                     </button>
                   )}
 
-                  <button type="submit" className="w-10 bg-pink-600 hover:bg-pink-700 flex items-center justify-center transition-colors">
-                    <Search className="w-4 h-4 text-white" />
+                  <button type="submit" className="w-9 h-9 sm:w-10 bg-transparent sm:bg-pink-600 hover:sm:bg-pink-700 flex items-center justify-center transition-colors shrink-0">
+                    <Search className="w-4 h-4 text-slate-500 sm:text-white" />
                   </button>
                 </form>
 

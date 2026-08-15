@@ -12,8 +12,10 @@ export default function StorefrontLayout({
 }) {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Promo Marquee Ticker */}
-      <PromoTicker />
+      {/* Promo Marquee Ticker - Hidden on mobile for native app feel */}
+      <div className="hidden sm:block">
+        <PromoTicker />
+      </div>
 
       {/* Global Navigation Header */}
       <Navbar />

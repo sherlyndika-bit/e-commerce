@@ -79,12 +79,12 @@ export function HeroBento() {
   const slide = heroSlides[currentSlide];
 
   return (
-    <section className="bg-slate-50 pt-2 sm:pt-3 pb-2">
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+    <section className="bg-slate-50 pt-0 sm:pt-3 pb-2">
+      <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
         {/* Desktop Bento Hero Grid: 8 Cols Main Slider + 4 Cols Side Promos */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-2.5 sm:gap-3">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 sm:gap-3">
           {/* Main Banner Slider (Cols 12 on mobile, Cols 8 on desktop) */}
-          <div className="lg:col-span-8 relative h-48 sm:h-64 lg:h-[300px] rounded-xl overflow-hidden group shadow-2xs bg-slate-900">
+          <div className="lg:col-span-8 relative h-48 sm:h-64 lg:h-[300px] rounded-none sm:rounded-xl overflow-hidden group shadow-none sm:shadow-2xs bg-slate-900">
             {isMounted ? (
               <AnimatePresence mode="wait">
                 <motion.div
@@ -245,7 +245,7 @@ export function HeroBento() {
         </div>
 
         {/* Compact Quick Actions Strip */}
-        <div className="mt-2.5 bg-white rounded-xl border border-slate-200/90 shadow-2xs p-2.5 sm:p-3">
+        <div className="mt-2.5 mx-2 sm:mx-0 bg-white rounded-xl border border-slate-200/90 shadow-2xs p-2.5 sm:p-3">
           <div className="grid grid-cols-6 gap-1 sm:gap-2">
             {quickPills.map((pill) => {
               const isButton = pill.href === '#';
