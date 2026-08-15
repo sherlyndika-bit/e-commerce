@@ -1,41 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 import { mockCategories } from '@/lib/mock-data/categories';
-import { 
-  RiSmartphoneFill,
-  RiShirtFill,
-  RiShoppingBag3Fill,
-  RiSparkling2Fill,
-  RiComputerFill,
-  RiHomeSmile2Fill,
-  RiRestaurant2Fill,
-  RiTrophyFill,
-  RiHeart3Fill,
-  RiGamepadFill,
-  RiCarFill,
-  RiBookOpenFill
-} from 'react-icons/ri';
+
 import { ChevronRight } from 'lucide-react';
 
 export default function AllCategoriesPage() {
-  const getCategoryIcon = (iconName: string) => {
-    const props = { className: 'w-6 h-6' };
-    switch (iconName) {
-      case 'Smartphone': return <RiSmartphoneFill {...props} />;
-      case 'Shirt': return <RiShirtFill {...props} />;
-      case 'ShoppingBag': return <RiShoppingBag3Fill {...props} />;
-      case 'Sparkles': return <RiSparkling2Fill {...props} />;
-      case 'Laptop': return <RiComputerFill {...props} />;
-      case 'Home': return <RiHomeSmile2Fill {...props} />;
-      case 'Utensils': return <RiRestaurant2Fill {...props} />;
-      case 'Trophy': return <RiTrophyFill {...props} />;
-      case 'Heart': return <RiHeart3Fill {...props} />;
-      case 'Gamepad2': return <RiGamepadFill {...props} />;
-      case 'Car': return <RiCarFill {...props} />;
-      case 'BookOpen': return <RiBookOpenFill {...props} />;
-      default: return <RiShoppingBag3Fill {...props} />;
-    }
-  };
+
 
   return (
     <div className="bg-slate-50 min-h-screen pb-16">
@@ -62,8 +32,8 @@ export default function AllCategoriesPage() {
                 href={`/categories/${cat.slug}`}
                 className="flex items-center gap-4 p-4 border-b border-slate-100 bg-slate-50 group-hover:bg-pink-50 transition-colors"
               >
-                <div className="w-12 h-12 rounded-full bg-white text-pink-500 flex items-center justify-center shadow-xs border border-pink-100 group-hover:bg-pink-500 group-hover:text-white transition-all">
-                  {getCategoryIcon(cat.iconName)}
+                <div className="w-12 h-12 rounded-full bg-white text-pink-500 flex items-center justify-center shadow-xs border border-pink-100 group-hover:border-pink-300 transition-all overflow-hidden shrink-0">
+                  <img src={cat.bannerImage} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="font-bold text-slate-800 text-sm group-hover:text-pink-700 truncate">{cat.name}</h3>

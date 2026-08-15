@@ -4,55 +4,11 @@ import React from 'react';
 import Link from 'next/link';
 import { mockCategories } from '@/lib/mock-data/categories';
 import { useToastStore } from '@/lib/store/useToastStore';
-import { 
-  RiSmartphoneFill,
-  RiShirtFill,
-  RiShoppingBag3Fill,
-  RiSparkling2Fill,
-  RiComputerFill,
-  RiHomeSmile2Fill,
-  RiRestaurant2Fill,
-  RiTrophyFill,
-  RiHeart3Fill,
-  RiGamepadFill,
-  RiCarFill,
-  RiBookOpenFill
-} from 'react-icons/ri';
+
 
 export function CategoryExplorer() {
   const { addToast } = useToastStore();
-  const getCategoryIcon = (iconName: string) => {
-    // We map the mock data's iconName (which was designed for Lucide) to FontAwesome Solid icons
-    const props = { className: 'w-6 h-6' };
-    switch (iconName) {
-      case 'Smartphone':
-        return <RiSmartphoneFill {...props} />;
-      case 'Shirt':
-        return <RiShirtFill {...props} />;
-      case 'ShoppingBag':
-        return <RiShoppingBag3Fill {...props} />;
-      case 'Sparkles':
-        return <RiSparkling2Fill {...props} />;
-      case 'Laptop':
-        return <RiComputerFill {...props} />;
-      case 'Home':
-        return <RiHomeSmile2Fill {...props} />;
-      case 'Utensils':
-        return <RiRestaurant2Fill {...props} />;
-      case 'Trophy':
-        return <RiTrophyFill {...props} />;
-      case 'Heart':
-        return <RiHeart3Fill {...props} />;
-      case 'Gamepad2':
-        return <RiGamepadFill {...props} />;
-      case 'Car':
-        return <RiCarFill {...props} />;
-      case 'BookOpen':
-        return <RiBookOpenFill {...props} />;
-      default:
-        return <RiShoppingBag3Fill {...props} />;
-    }
-  };
+
 
   return (
     <section className="py-4 bg-white border-b border-slate-100">
@@ -77,8 +33,8 @@ export function CategoryExplorer() {
               href={`/categories/${cat.slug}`}
               className="group flex flex-col items-center hover:-translate-y-1 transition-transform duration-200 text-center"
             >
-              <div className="relative w-[52px] h-[52px] rounded-full bg-pink-50 text-pink-500 flex items-center justify-center mb-2 shadow-xs border border-pink-100 transition-all duration-200 group-hover:bg-pink-500 group-hover:text-white group-hover:border-pink-500 group-hover:shadow-md">
-                {getCategoryIcon(cat.iconName)}
+              <div className="relative w-[52px] h-[52px] rounded-full bg-pink-50 text-pink-500 flex items-center justify-center mb-2 shadow-xs border border-pink-100 transition-all duration-200 group-hover:border-pink-400 group-hover:shadow-md overflow-hidden shrink-0">
+                <img src={cat.bannerImage} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
                 
                 {cat.isPopular && (
                   <span className="absolute -top-1.5 -right-1.5 bg-rose-500 text-white text-[8px] font-black uppercase px-1.5 py-0.5 rounded-full shadow-sm z-10 border-[1.5px] border-white">
