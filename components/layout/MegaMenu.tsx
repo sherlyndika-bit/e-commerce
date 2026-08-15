@@ -67,7 +67,7 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
             <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
               <div>
                 <h4 className="text-base font-extrabold text-slate-900 flex items-center gap-2">
-                  <div className="w-6 h-6 shrink-0 bg-slate-50 rounded-full p-1 border border-slate-100 flex items-center justify-center">
+                  <div className="w-6 h-6 shrink-0 bg-pink-50 rounded-full p-1 border border-pink-100 flex items-center justify-center">
                     <img src={activeCategory.imageIcon} alt="" className="w-full h-full object-contain drop-shadow-sm" />
                   </div>
                   {activeCategory.name}

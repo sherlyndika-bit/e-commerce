@@ -5,7 +5,7 @@ export const mockCategories: Category[] = [
     id: 'cat-1',
     slug: 'elektronik-gadget',
     name: 'Elektronik & Gadget',
-    imageIcon: 'https://pngimg.com/uploads/smartphone/smartphone_PNG8514.png',
+    imageIcon: 'https://pngimg.com/uploads/smartphone/smartphone_PNG8531.png',
     description: 'Smartphones, wearables, audio, dan perlengkapan gadget terbaru garansi resmi.',
     bannerImage: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -22,7 +22,7 @@ export const mockCategories: Category[] = [
     id: 'cat-2',
     slug: 'fashion-pria',
     name: 'Fashion Pria',
-    imageIcon: 'https://pngimg.com/uploads/tshirt/tshirt_PNG5450.png',
+    imageIcon: 'https://pngimg.com/uploads/tshirt/suit_PNG8121.png',
     description: 'Pakaian pria, sepatu sneakers, jaket, dan aksesoris gaya casual hingga formal.',
     bannerImage: 'https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -39,7 +39,7 @@ export const mockCategories: Category[] = [
     id: 'cat-3',
     slug: 'fashion-wanita',
     name: 'Fashion Wanita',
-    imageIcon: 'https://pngimg.com/uploads/dress/dress_PNG143.png',
+    imageIcon: 'https://pngimg.com/uploads/dress/women_bag_PNG6413.png',
     description: 'Dress, atasan wanita, tas branded, hijab, dan alas kaki modis terkini.',
     bannerImage: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -73,7 +73,7 @@ export const mockCategories: Category[] = [
     id: 'cat-5',
     slug: 'komputer-laptop',
     name: 'Komputer & Laptop',
-    imageIcon: 'https://pngimg.com/uploads/laptop/laptop_PNG5917.png',
+    imageIcon: 'https://pngimg.com/uploads/laptop/laptop_PNG5904.png',
     description: 'Laptop kerja, gaming PC, monitor, mechanical keyboard, dan aksesoris PC.',
     bannerImage: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -90,7 +90,7 @@ export const mockCategories: Category[] = [
     id: 'cat-6',
     slug: 'rumah-tangga',
     name: 'Rumah Tangga & Perabotan',
-    imageIcon: 'https://pngimg.com/uploads/sofa/sofa_PNG6956.png',
+    imageIcon: 'https://pngimg.com/uploads/sofa/frying_pan_PNG8345.png',
     description: 'Dekorasi rumah estetik, perabot minimalis, peralatan dapur, dan sprei lembut.',
     bannerImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -170,7 +170,7 @@ export const mockCategories: Category[] = [
     id: 'cat-11',
     slug: 'otomotif',
     name: 'Otomotif & Aksesoris',
-    imageIcon: 'https://pngimg.com/uploads/car_wheel/car_wheel_PNG23302.png',
+    imageIcon: 'https://pngimg.com/uploads/car_wheel/motorcycle_PNG3146.png',
     description: 'Helm SNI, oli motor/mobil, dashcam, interkom bluetooth, dan car care kit.',
     bannerImage: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=800&auto=format&fit=crop',
     subcategories: [
@@ -186,7 +186,7 @@ export const mockCategories: Category[] = [
     id: 'cat-12',
     slug: 'buku-alat-tulis',
     name: 'Buku & Alat Tulis',
-    imageIcon: 'https://pngimg.com/uploads/book/book_PNG2111.png',
+    imageIcon: 'https://pngimg.com/uploads/book/book_PNG2116.png',
     description: 'Buku best-seller, novel inspiratif, buku bisnis/self-improvement, binder & pulpen.',
     bannerImage: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=800&auto=format&fit=crop',
     subcategories: [

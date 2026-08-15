@@ -32,7 +32,7 @@ export default function AllCategoriesPage() {
                 href={`/categories/${cat.slug}`}
                 className="flex items-center gap-4 p-4 border-b border-slate-100 bg-slate-50 group-hover:bg-pink-50 transition-colors"
               >
-                <div className="w-16 h-16 rounded-full bg-slate-50 text-slate-500 flex items-center justify-center shadow-xs border border-slate-100 group-hover:border-pink-300 transition-all overflow-hidden shrink-0 p-2">
+                <div className="w-16 h-16 rounded-full bg-pink-50 text-pink-500 flex items-center justify-center shadow-xs border border-pink-100 group-hover:border-pink-300 transition-all overflow-hidden shrink-0 p-2">
                   <img src={cat.imageIcon} alt={cat.name} className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-sm" />
                 </div>
                 <div className="flex-1 min-w-0">
