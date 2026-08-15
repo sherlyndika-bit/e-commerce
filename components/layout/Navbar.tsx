@@ -17,12 +17,14 @@ import {
   Ticket,
   ShoppingBag,
   Bell,
+  MessageCircle,
 } from 'lucide-react';
 import { useCartStore } from '@/lib/store/useCartStore';
 import { useWishlistStore } from '@/lib/store/useWishlistStore';
 import { useAuthStore } from '@/lib/store/useAuthStore';
 import { useToastStore } from '@/lib/store/useToastStore';
 import { useProductStore } from '@/lib/store/useProductStore';
+import { useChatStore } from '@/lib/store/useChatStore';
 import { mockCategories } from '@/lib/mock-data/categories';
 import { formatRupiah } from '@/lib/utils/formatters';
 import { MegaMenu } from './MegaMenu';
@@ -47,9 +49,11 @@ export function Navbar() {
   const { currentUser, isAuthenticated, logout } = useAuthStore();
   const { addToast } = useToastStore();
   const { products: allProducts } = useProductStore();
+  const { toggleChat, getTotalUnreadCount } = useChatStore();
 
   const totalCartCount = getTotalItemsCount();
   const totalWishlistCount = wishlistIds.length;
+  const totalChatUnread = getTotalUnreadCount();
 
   const filteredProducts = searchQuery.trim()
     ? allProducts
@@ -232,6 +236,19 @@ export function Navbar() {
 
               {/* 3. Right Action Icons & User Profile */}
               <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+                <button
+                  onClick={toggleChat}
+                  className="relative p-1.5 text-slate-600 hover:text-pink-600 transition-colors hidden sm:flex items-center cursor-pointer"
+                  title="TumbasChat Penjual"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  {totalChatUnread > 0 && (
+                    <span className="absolute top-0.5 right-0.5 min-w-[15px] h-[15px] px-0.5 rounded-full bg-pink-600 text-white text-[9px] font-black flex items-center justify-center animate-pulse">
+                      {totalChatUnread}
+                    </span>
+                  )}
+                </button>
+
                 <Link href="/account?tab=wishlist" className="relative p-1.5 text-slate-600 hover:text-pink-600 transition-colors hidden sm:flex">
                   <Heart className="w-5 h-5" />
                   {totalWishlistCount > 0 && (

@@ -3,6 +3,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { PromoTicker } from '@/components/layout/PromoTicker';
 import { MobileNav } from '@/components/layout/MobileNav';
+import { FloatingChat } from '@/components/chat/FloatingChat';
 
 export default function StorefrontLayout({
   children,
@@ -25,6 +26,9 @@ export default function StorefrontLayout({
 
       {/* Mobile Sticky Bottom Nav */}
       <MobileNav />
+
+      {/* Floating Interactive Live Chat Widget */}
+      <FloatingChat />
     </div>
   );
 }

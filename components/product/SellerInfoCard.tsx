@@ -9,6 +9,7 @@ import { RatingStars } from '../ui/RatingStars';
 import { MapPin, MessageSquare, Store, Clock, Award, ArrowRight } from 'lucide-react';
 import { formatCompactNumber } from '@/lib/utils/formatters';
 import { useToastStore } from '@/lib/store/useToastStore';
+import { useChatStore } from '@/lib/store/useChatStore';
 
 interface SellerInfoCardProps {
   seller: Seller;
@@ -16,12 +17,13 @@ interface SellerInfoCardProps {
 
 export function SellerInfoCard({ seller }: SellerInfoCardProps) {
   const { addToast } = useToastStore();
+  const { openChat } = useChatStore();
 
   const handleChat = () => {
-    addToast({
-      title: `Memulai Chat dengan ${seller.name} 💬`,
-      description: 'Fitur chat live seller siap digunakan untuk tanya stok dan varian.',
-      type: 'info',
+    openChat(seller.id, undefined, {
+      name: seller.name,
+      avatar: seller.avatar,
+      badge: seller.badge,
     });
   };
 

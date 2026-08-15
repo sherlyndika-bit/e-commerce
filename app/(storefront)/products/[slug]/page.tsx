@@ -19,6 +19,7 @@ import { formatRupiah, formatDiscount } from '@/lib/utils/formatters';
 import { useCartStore } from '@/lib/store/useCartStore';
 import { useWishlistStore } from '@/lib/store/useWishlistStore';
 import { useToastStore } from '@/lib/store/useToastStore';
+import { useChatStore } from '@/lib/store/useChatStore';
 import {
   ChevronRight,
   Heart,
@@ -30,6 +31,7 @@ import {
   Plus,
   Minus,
   Sparkles,
+  MessageCircle,
 } from 'lucide-react';
 
 export default function ProductDetailPage() {
@@ -121,6 +123,18 @@ export default function ProductDetailPage() {
         title: 'Tautan Produk Disalin! 🔗',
         description: 'Bagikan tautan ini ke teman atau keluargamu.',
         type: 'info',
+      });
+    }
+  };
+
+  const { openChat } = useChatStore();
+
+  const handleChatWithSeller = () => {
+    if (product) {
+      openChat(product.sellerId, product, {
+        name: product.sellerName,
+        avatar: seller?.avatar,
+        badge: product.sellerBadge,
       });
     }
   };
@@ -312,12 +326,22 @@ export default function ProductDetailPage() {
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-3 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div className="pt-3 border-t border-slate-100 flex flex-col sm:flex-row items-center gap-2.5">
+                <Button
+                  onClick={handleChatWithSeller}
+                  variant="ghost"
+                  size="md"
+                  className="w-full sm:w-auto border border-slate-200 text-slate-700 hover:text-pink-600 hover:border-pink-200 hover:bg-pink-50/50"
+                  leftIcon={<MessageCircle className="w-4 h-4 text-pink-600" />}
+                >
+                  Chat
+                </Button>
+
                 <Button
                   onClick={handleAddToCart}
                   variant="outline"
                   size="md"
-                  className="w-full border-pink-600 text-pink-700 hover:bg-pink-50"
+                  className="w-full sm:flex-1 border-pink-600 text-pink-700 hover:bg-pink-50"
                   leftIcon={<ShoppingBag className="w-4 h-4 text-pink-600" />}
                 >
                   + Keranjang
@@ -327,7 +351,7 @@ export default function ProductDetailPage() {
                   onClick={handleBuyNow}
                   variant="primary"
                   size="md"
-                  className="w-full"
+                  className="w-full sm:flex-1"
                 >
                   Beli Langsung • {formatRupiah(currentPrice * quantity)}
                 </Button>
