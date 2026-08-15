@@ -49,6 +49,16 @@ const config: Config = {
         sans: ['var(--font-jakarta)', 'Inter', 'sans-serif'],
         display: ['var(--font-jakarta)', 'sans-serif'],
       },
+      fontWeight: {
+        thin: '300',
+        light: '400',
+        normal: '500',    // base "normal" = medium weight
+        medium: '500',
+        semibold: '600',
+        bold: '700',
+        extrabold: '800',
+        black: '900',
+      },
       boxShadow: {
         'subtle': '0 2px 12px rgba(0, 0, 0, 0.04)',
         'elevated': '0 12px 32px -4px rgba(79, 70, 229, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03)',

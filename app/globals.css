@@ -13,6 +13,29 @@
 
   body {
     @apply bg-slate-50 text-slate-900 font-sans antialiased;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Stronger type hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  p, span, li, td, th, label, input, textarea, select {
+    font-weight: 500;
+  }
+
+  /* Buttons and interactive elements should be bold */
+  button {
+    font-weight: 600;
+  }
+
+  /* Small text stays readable */
+  .text-xs, .text-\[10px\], .text-\[11px\] {
+    font-weight: 500;
   }
 }
 
@@ -26,4 +49,12 @@
 }
 ::-webkit-scrollbar-thumb {
   @apply bg-slate-300 rounded-full hover:bg-pink-500;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
