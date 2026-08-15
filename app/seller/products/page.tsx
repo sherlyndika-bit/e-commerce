@@ -27,7 +27,7 @@ export default function SellerProductsPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h1 className="text-xl font-bold text-slate-900">Produk Saya</h1>
-          <p className="text-sm text-slate-500 mt-0.5">Kelola semua produk yang kamu jual di COinAja.</p>
+          <p className="text-sm text-slate-500 mt-0.5">Kelola semua produk yang kamu jual di TumbasCO.</p>
         </div>
         <button className="self-start sm:self-auto flex items-center gap-2 px-4 py-2 bg-pink-600 hover:bg-pink-700 text-white text-sm font-semibold rounded-lg transition-colors shadow-sm">
           <Plus className="w-4 h-4" />

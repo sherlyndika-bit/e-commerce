@@ -58,7 +58,7 @@ export default function SuperadminOverviewPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h1 className="text-xl font-bold text-slate-900">Platform Overview</h1>
-          <p className="text-sm text-slate-500 mt-0.5">Ringkasan performa marketplace COinAja secara menyeluruh.</p>
+          <p className="text-sm text-slate-500 mt-0.5">Ringkasan performa marketplace TumbasCO secara menyeluruh.</p>
         </div>
         <button className="self-start sm:self-auto px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-lg transition-colors shadow-sm">
           Download Laporan
@@ -71,7 +71,7 @@ export default function SuperadminOverviewPage() {
           <ShieldCheck className="w-4 h-4 text-emerald-600" />
         </div>
         <div>
-          <p className="text-sm font-bold text-emerald-900">Platform COinAja berjalan normal ✓</p>
+          <p className="text-sm font-bold text-emerald-900">Platform TumbasCO berjalan normal ✓</p>
           <p className="text-xs text-emerald-700 mt-0.5">Semua sistem beroperasi. Uptime 99.9% • Response time avg 142ms</p>
         </div>
       </div>

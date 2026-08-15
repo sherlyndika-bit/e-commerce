@@ -250,7 +250,7 @@ export function LiveChatDrawer() {
                 <div className="text-center">
                   <span className="inline-flex items-center gap-1 bg-brand-50 dark:bg-brand-950/60 text-brand-700 dark:text-brand-300 text-[10px] font-bold px-3 py-1 rounded-full border border-brand-200/60 dark:border-brand-900/40">
                     <Sparkles className="w-3 h-3 text-coin-500" />
-                    Chat Dilindungi Garansi Transaksi COinaja
+                    Chat Dilindungi Garansi Transaksi TumbasCO
                   </span>
                 </div>
 

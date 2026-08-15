@@ -144,7 +144,7 @@ export function CartSummaryCard() {
             <Sparkles className="w-4 h-4 text-amber-500" />
             <div>
               <span className="text-xs font-bold text-slate-900 dark:text-white block">
-                Tukarkan Koin COinaja
+                Tukarkan Koin TumbasCO
               </span>
               <span className="text-[11px] text-slate-500">
                 Saldo: {formatRupiah(currentUser.coinBalance)} (Maks potong {formatRupiah(maxAllowedCoins)})
@@ -177,7 +177,7 @@ export function CartSummaryCard() {
 
         {useCoins && coinDeduction > 0 && (
           <div className="flex justify-between text-amber-600 dark:text-amber-400 font-semibold">
-            <span>Potongan Koin COinaja:</span>
+            <span>Potongan Koin TumbasCO:</span>
             <span>-{formatRupiah(coinDeduction)}</span>
           </div>
         )}

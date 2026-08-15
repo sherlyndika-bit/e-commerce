@@ -20,7 +20,7 @@ export default function SuperadminSettingsPage() {
     <div className="space-y-5">
       <div>
         <h1 className="text-xl font-bold text-slate-900">Konfigurasi Platform</h1>
-        <p className="text-sm text-slate-500 mt-0.5">Atur parameter global dan konfigurasi sistem COinAja.</p>
+        <p className="text-sm text-slate-500 mt-0.5">Atur parameter global dan konfigurasi sistem TumbasCO.</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">

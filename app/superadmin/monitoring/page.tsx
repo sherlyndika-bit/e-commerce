@@ -31,7 +31,7 @@ export default function SuperadminMonitoringPage() {
     <div className="space-y-5">
       <div>
         <h1 className="text-xl font-bold text-slate-900">Monitoring Platform</h1>
-        <p className="text-sm text-slate-500 mt-0.5">Status real-time seluruh layanan dan infrastruktur COinAja.</p>
+        <p className="text-sm text-slate-500 mt-0.5">Status real-time seluruh layanan dan infrastruktur TumbasCO.</p>
       </div>
 
       {/* Status Banner */}

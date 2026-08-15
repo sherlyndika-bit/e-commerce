@@ -29,7 +29,7 @@ export default function RegisterPage() {
       login(email || 'budi.santoso@example.com');
       updateUser({
         name: name || (role === 'seller' ? shopName : 'Pengguna Baru'),
-        email: email || 'user@coinaja.id',
+        email: email || 'user@TumbasCO.id',
         phone: phone || '08123456789',
         role,
       });
@@ -37,7 +37,7 @@ export default function RegisterPage() {
       setIsLoading(false);
       addToast({
         title: role === 'seller' ? 'Toko Berhasil Dibuka! 🏪' : 'Akun Berhasil Dibuat! 🎉',
-        description: `Selamat datang di COinaja, ${name || shopName}!`,
+        description: `Selamat datang di TumbasCO, ${name || shopName}!`,
         type: 'success',
       });
 
@@ -67,7 +67,7 @@ export default function RegisterPage() {
               Daftar Akun Baru
             </h1>
             <p className="text-xs text-slate-500 mt-1">
-              Pilih tujuan pendaftaranmu di platform COinaja
+              Pilih tujuan pendaftaranmu di platform TumbasCO
             </p>
           </div>
 

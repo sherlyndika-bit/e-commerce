@@ -42,7 +42,7 @@ export function TopUpModal({ isOpen, onClose }: TopUpModalProps) {
 
       addToast({
         title: 'Top Up Koin Berhasil! 🪙',
-        description: `+${formatRupiah(selectedNominal)} Koin COinaja telah masuk ke saldo akunmu.`,
+        description: `+${formatRupiah(selectedNominal)} Koin TumbasCO telah masuk ke saldo akunmu.`,
         type: 'success',
       });
     }, 1000);
@@ -54,7 +54,7 @@ export function TopUpModal({ isOpen, onClose }: TopUpModalProps) {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={handleResetAndClose} title="💳 Isi Saldo Koin COinaja" maxWidth="md">
+    <Modal isOpen={isOpen} onClose={handleResetAndClose} title="💳 Isi Saldo Koin TumbasCO" maxWidth="md">
       <div className="space-y-5">
         {step === 'nominal' && (
           <div className="space-y-4">
@@ -89,7 +89,7 @@ export function TopUpModal({ isOpen, onClose }: TopUpModalProps) {
             </div>
 
             <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl text-[11px] text-slate-500 space-y-1">
-              <p>• 1 Rupiah = 1 Koin COinaja (Bisa langsung dipotong saat belanja checkout).</p>
+              <p>• 1 Rupiah = 1 Koin TumbasCO (Bisa langsung dipotong saat belanja checkout).</p>
               <p>• Bebas biaya admin transfer untuk pembayaran melalui QRIS.</p>
             </div>
 
@@ -111,7 +111,7 @@ export function TopUpModal({ isOpen, onClose }: TopUpModalProps) {
             <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 max-w-xs mx-auto shadow-elevated space-y-3">
               <div className="flex items-center justify-between border-b pb-2 border-slate-100 dark:border-slate-700">
                 <span className="font-black text-xs text-brand-600">QRIS STANDAR NASIONAL</span>
-                <span className="font-bold text-[10px] text-slate-400">COinaja Pay</span>
+                <span className="font-bold text-[10px] text-slate-400">TumbasCO Pay</span>
               </div>
 
               <div className="w-44 h-44 mx-auto bg-slate-100 dark:bg-slate-700 p-2 rounded-xl flex items-center justify-center border">
@@ -158,7 +158,7 @@ export function TopUpModal({ isOpen, onClose }: TopUpModalProps) {
             <div>
               <h3 className="font-black text-lg text-slate-900 dark:text-white">Top Up Berhasil!</h3>
               <p className="text-xs text-slate-500 mt-1">
-                Saldo Koin COinaja bertambah sebesar <strong className="text-brand-600">{formatRupiah(selectedNominal)}</strong>
+                Saldo Koin TumbasCO bertambah sebesar <strong className="text-brand-600">{formatRupiah(selectedNominal)}</strong>
               </p>
             </div>
 

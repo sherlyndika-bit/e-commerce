@@ -67,7 +67,7 @@ export const mockUsers: User[] = [
   {
     id: 'user-admin-1',
     name: 'Siti Rahmawati (Super Admin)',
-    email: 'admin@coinaja.id',
+    email: 'admin@TumbasCO.id',
     phone: '081122334455',
     avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=150&auto=format&fit=crop',
     role: 'admin',

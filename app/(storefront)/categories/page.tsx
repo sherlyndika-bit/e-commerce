@@ -48,7 +48,7 @@ export default function AllCategoriesPage() {
             <span className="font-semibold text-slate-800">Semua Kategori</span>
           </div>
           <h1 className="text-2xl font-black text-slate-900 tracking-tight">Kategori Belanja</h1>
-          <p className="text-sm text-slate-500 mt-1">Jelajahi semua kategori produk di COinaja</p>
+          <p className="text-sm text-slate-500 mt-1">Jelajahi semua kategori produk di TumbasCO</p>
         </div>
       </div>
 

@@ -99,7 +99,7 @@ export function Navbar() {
           <div className="bg-slate-50 border-b border-slate-200/60 hidden md:block">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-7 flex items-center justify-between text-[11px] text-slate-500 font-medium">
               <div className="flex items-center gap-4">
-                <button onClick={() => addToast({ title: 'Tentang COinaja', description: 'Fitur halaman perusahaan sedang dikembangkan.', type: 'info' })} className="hover:text-pink-600 transition-colors">Tentang COinaja</button>
+                <button onClick={() => addToast({ title: 'Tentang TumbasCO', description: 'Fitur halaman perusahaan sedang dikembangkan.', type: 'info' })} className="hover:text-pink-600 transition-colors">Tentang TumbasCO</button>
                 <span className="text-slate-300">|</span>
                 <Link href="/auth/register" className="hover:text-pink-600 transition-colors flex items-center gap-1"><Store className="w-3 h-3 text-pink-600"/> Mulai Berjualan</Link>
                 <span className="text-slate-300">|</span>
@@ -108,7 +108,7 @@ export function Navbar() {
               <div className="flex items-center gap-4">
                 <Link href="/vouchers" className="hover:text-pink-600 transition-colors">Promo & Voucher</Link>
                 <span className="text-slate-300">|</span>
-                <button onClick={() => addToast({ title: 'COinaja Care', description: 'Customer service kami siap membantu Anda 24/7.', type: 'info' })} className="hover:text-pink-600 transition-colors">COinaja Care</button>
+                <button onClick={() => addToast({ title: 'TumbasCO Care', description: 'Customer service kami siap membantu Anda 24/7.', type: 'info' })} className="hover:text-pink-600 transition-colors">TumbasCO Care</button>
                 <span className="text-slate-300">|</span>
                 <span className="text-slate-500">🇮🇩 IDR</span>
               </div>
@@ -126,7 +126,7 @@ export function Navbar() {
                   </div>
                   <div className="flex flex-col">
                     <span className="text-xl font-black tracking-tight text-pink-600">
-                      COinaja
+                      TumbasCO
                     </span>
                   </div>
                 </Link>
@@ -152,7 +152,7 @@ export function Navbar() {
                       setIsSearchOpen(true);
                     }}
                     onFocus={() => setIsSearchOpen(true)}
-                    placeholder="Cari barang, brand, atau kategori di COinaja..."
+                    placeholder="Cari barang, brand, atau kategori di TumbasCO..."
                     className="w-full h-full pl-3 pr-10 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none"
                   />
                   

@@ -362,7 +362,7 @@ export default function CheckoutPage() {
 
                 {useCoins && coinDeduction > 0 && (
                   <div className="flex justify-between text-amber-600 dark:text-amber-400 font-semibold">
-                    <span>Potongan Koin COinaja:</span>
+                    <span>Potongan Koin TumbasCO:</span>
                     <span>-{formatRupiah(coinDeduction)}</span>
                   </div>
                 )}

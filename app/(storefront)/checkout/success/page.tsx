@@ -69,7 +69,7 @@ function CheckoutSuccessContent() {
             Pesanan Berhasil Dikonfirmasi!
           </h1>
           <p className="text-xs text-slate-500 max-w-md mx-auto mb-4 leading-relaxed">
-            Terima kasih telah berbelanja di COinaja. Penjual telah menerima notifikasi dan sedang memproses pesananmu.
+            Terima kasih telah berbelanja di TumbasCO. Penjual telah menerima notifikasi dan sedang memproses pesananmu.
           </p>
 
           {/* Order Number Box & Invoice Trigger */}

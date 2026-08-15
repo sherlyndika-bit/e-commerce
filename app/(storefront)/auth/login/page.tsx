@@ -25,7 +25,7 @@ export default function LoginPage() {
       setIsLoading(false);
       addToast({
         title: 'Selamat Datang Kembali! 👋',
-        description: 'Login berhasil. Selamat berbelanja di COinaja!',
+        description: 'Login berhasil. Selamat berbelanja di TumbasCO!',
         type: 'success',
       });
       router.push('/');
@@ -151,7 +151,7 @@ export default function LoginPage() {
 
           {/* Footer Register Link */}
           <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 text-center text-xs text-slate-500">
-            Belum punya akun di COinaja?{' '}
+            Belum punya akun di TumbasCO?{' '}
             <Link href="/auth/register" className="font-bold text-brand-500 hover:underline">
               Daftar Sekarang
             </Link>

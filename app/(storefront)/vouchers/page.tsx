@@ -79,7 +79,7 @@ export default function VouchersHubPage() {
               <Sparkles className="w-3 h-3" /> Klaim Promo Hari Ini
             </span>
             <h1 className="text-xl sm:text-2xl font-black tracking-tight leading-tight mb-2">
-              Kumpulan Voucher Diskon, Gratis Ongkir & Cashback Koin COinaja
+              Kumpulan Voucher Diskon, Gratis Ongkir & Cashback Koin TumbasCO
             </h1>
             <p className="text-xs text-slate-200 leading-relaxed mb-4">
               Gunakan kupon ini saat checkout untuk hemat hingga ratusan ribu rupiah di seluruh toko se-Indonesia.

@@ -27,7 +27,7 @@ export default function SuperadminReportsPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h1 className="text-xl font-bold text-slate-900">Laporan Keuangan</h1>
-          <p className="text-sm text-slate-500 mt-0.5">Ringkasan finansial platform COinAja secara periodik.</p>
+          <p className="text-sm text-slate-500 mt-0.5">Ringkasan finansial platform TumbasCO secara periodik.</p>
         </div>
         <div className="flex gap-2 self-start sm:self-auto">
           <div className="flex border border-slate-200 rounded-lg overflow-hidden text-sm font-medium bg-white">

@@ -88,7 +88,7 @@ function AccountContent() {
           <div className="flex items-center gap-2.5">
             <div className="p-3 bg-white/10 rounded-lg border border-white/15 min-w-32">
               <span className="text-[10px] text-amber-300 font-bold block">
-                💰 Koin COinaja
+                💰 Koin TumbasCO
               </span>
               <span className="text-sm sm:text-base font-bold text-white mt-0.5 block">
                 {formatRupiah(currentUser.coinBalance)}
@@ -394,7 +394,7 @@ function AccountContent() {
               <div className="space-y-4">
                 {/* Coin balance banner */}
                 <div className="p-5 rounded-lg bg-amber-500 text-slate-950 shadow-2xs">
-                  <span className="text-xs font-bold text-slate-900">Saldo Koin COinaja</span>
+                  <span className="text-xs font-bold text-slate-900">Saldo Koin TumbasCO</span>
                   <h3 className="text-2xl font-black mt-0.5">
                     {formatRupiah(currentUser.coinBalance)}
                   </h3>

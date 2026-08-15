@@ -110,7 +110,7 @@ export const useOrderStore = create<OrderStore>()(
         })),
     }),
     {
-      name: 'coinaja-orders-storage',
+      name: 'TumbasCO-orders-storage',
       skipHydration: true,
     }
   )

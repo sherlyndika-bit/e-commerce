@@ -15,7 +15,7 @@ export const mockVouchers: Voucher[] = [
   },
   {
     id: 'vouch-2',
-    code: 'COINAJAPESTA',
+    code: 'TumbasCOPESTA',
     title: 'Diskon 10% Spesial Launching',
     description: 'Diskon 10% belanja apa saja tanpa batas kategori, maksimal potongan Rp50.000.',
     type: 'discount_percent',
@@ -30,7 +30,7 @@ export const mockVouchers: Voucher[] = [
     id: 'vouch-3',
     code: 'KOINCASHBACK',
     title: 'Cashback Koin 15% s/d 30rb Koin',
-    description: 'Dapatkan cashback koin COinaja untuk belanja berikutnya tanpa syarat ribet.',
+    description: 'Dapatkan cashback koin TumbasCO untuk belanja berikutnya tanpa syarat ribet.',
     type: 'cashback_coin',
     discountAmount: 15,
     maxDiscount: 30000,

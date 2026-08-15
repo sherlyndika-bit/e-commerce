@@ -81,7 +81,7 @@ export default function SellerLayout({ children }: { children: React.ReactNode }
               <Store className="w-4 h-4 text-white" />
             </div>
             <div>
-              <div className="text-white font-bold text-sm leading-none">COinAja</div>
+              <div className="text-white font-bold text-sm leading-none">TumbasCO</div>
               <div className="text-pink-400 text-[10px] font-semibold tracking-widest">SELLER CENTER</div>
             </div>
           </Link>

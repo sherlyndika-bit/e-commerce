@@ -48,7 +48,7 @@ export const useProductStore = create<ProductStore>()(
         })),
     }),
     {
-      name: 'coinaja-products-storage', // unique name
+      name: 'TumbasCO-products-storage', // unique name
       skipHydration: true, // we handle hydration manually if needed, or false to auto-hydrate. Let's use false so it hydrates automatically.
     }
   )

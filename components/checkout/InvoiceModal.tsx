@@ -135,7 +135,7 @@ export function InvoiceModal({ order, isOpen, onClose }: InvoiceModalProps) {
               )}
               {order.coinUsed > 0 && (
                 <div className="flex justify-between text-coin-600 font-bold">
-                  <span>Potongan Koin COinaja:</span>
+                  <span>Potongan Koin TumbasCO:</span>
                   <span>-{formatRupiah(order.coinUsed)}</span>
                 </div>
               )}
@@ -150,9 +150,9 @@ export function InvoiceModal({ order, isOpen, onClose }: InvoiceModalProps) {
           <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[10px] text-slate-400">
             <div className="flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4 text-pink-500" />
-              <span>Dokumen ini diterbitkan secara sah dan otomatis oleh sistem marketplace COinaja.</span>
+              <span>Dokumen ini diterbitkan secara sah dan otomatis oleh sistem marketplace TumbasCO.</span>
             </div>
-            <span className="font-mono">COINAJA-AUTHENTIC-RECORD</span>
+            <span className="font-mono">TumbasCO-AUTHENTIC-RECORD</span>
           </div>
         </div>
 

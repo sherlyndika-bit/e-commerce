@@ -11,10 +11,11 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'COinaja - Belanja Apa Aja, CO-in Aja! Marketplace Indonesia',
+  title: 'TumbasCO - Marketplace Belanja Online Indonesia',
   description:
-    'Platform e-commerce marketplace multi-seller terlengkap di Indonesia. Belanja fashion, gadget, skincare, perlengkapan rumah, dan kopi nusantara dengan promo diskon kilat, koin cashback, dan gratis ongkir!',
+    'TumbasCO adalah platform e-commerce marketplace multi-seller terlengkap di Indonesia. Belanja fashion, gadget, skincare, perlengkapan rumah dengan promo diskon kilat, koin cashback, dan gratis ongkir!',
   keywords: [
+    'TumbasCO',
     'marketplace indonesia',
     'belanja online',
     'diskon kilat',

@@ -79,7 +79,7 @@ export default function SuperadminLayout({ children }: { children: React.ReactNo
               <ShieldAlert className="w-4 h-4 text-white" />
             </div>
             <div>
-              <div className="text-white font-bold text-sm leading-none">COinAja</div>
+              <div className="text-white font-bold text-sm leading-none">TumbasCO</div>
               <div className="text-emerald-400 text-[10px] font-semibold tracking-widest">SUPERADMIN</div>
             </div>
           </Link>
@@ -95,7 +95,7 @@ export default function SuperadminLayout({ children }: { children: React.ReactNo
               <div className="text-white text-xs font-semibold truncate">{user?.name || 'Superadmin'}</div>
               <div className="flex items-center gap-1 mt-0.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0"></span>
-                <span className="text-emerald-400 text-[10px]">Tim COinAja</span>
+                <span className="text-emerald-400 text-[10px]">Tim TumbasCO</span>
               </div>
             </div>
           </div>
@@ -167,7 +167,7 @@ export default function SuperadminLayout({ children }: { children: React.ReactNo
               </div>
               <div className="hidden md:block">
                 <div className="text-sm font-semibold text-slate-800 leading-none">{user?.name}</div>
-                <div className="text-[11px] text-slate-500 mt-0.5">Superadmin COinAja</div>
+                <div className="text-[11px] text-slate-500 mt-0.5">Superadmin TumbasCO</div>
               </div>
               <ChevronDown className="w-4 h-4 text-slate-400 hidden sm:block" />
             </div>

@@ -40,7 +40,7 @@ export default function SuperadminSellersPage() {
     <div className="space-y-5">
       <div>
         <h1 className="text-xl font-bold text-slate-900">Manajemen Seller</h1>
-        <p className="text-sm text-slate-500 mt-0.5">Kelola dan pantau seluruh penjual yang terdaftar di COinAja.</p>
+        <p className="text-sm text-slate-500 mt-0.5">Kelola dan pantau seluruh penjual yang terdaftar di TumbasCO.</p>
       </div>
 
       {/* Stats Cards */}

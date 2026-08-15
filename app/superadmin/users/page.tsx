@@ -34,7 +34,7 @@ export default function SuperadminUsersPage() {
     <div className="space-y-5">
       <div>
         <h1 className="text-xl font-bold text-slate-900">Manajemen User</h1>
-        <p className="text-sm text-slate-500 mt-0.5">Pantau seluruh pengguna yang terdaftar di platform COinAja.</p>
+        <p className="text-sm text-slate-500 mt-0.5">Pantau seluruh pengguna yang terdaftar di platform TumbasCO.</p>
       </div>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">

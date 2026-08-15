@@ -48,7 +48,7 @@ export function LuckySpinModal({ isOpen, onClose }: LuckySpinModalProps) {
 
     addToast({
       title: 'Check-in Harian Berhasil! 🪙',
-      description: `+${rewardCoins.toLocaleString('id-ID')} Koin COinaja ditambahkan ke saldo akunmu. Streak: ${dailyStreak + 1} Hari!`,
+      description: `+${rewardCoins.toLocaleString('id-ID')} Koin TumbasCO ditambahkan ke saldo akunmu. Streak: ${dailyStreak + 1} Hari!`,
       type: 'success',
     });
   };
@@ -84,7 +84,7 @@ export function LuckySpinModal({ isOpen, onClose }: LuckySpinModalProps) {
 
       addToast({
         title: `Selamat! Kamu Menang ${selectedPrize.label}! 🎉`,
-        description: 'Hadiah otomatis aktif di akun COinaja kamu.',
+        description: 'Hadiah otomatis aktif di akun TumbasCO kamu.',
         type: 'success',
       });
     }, 4000);
