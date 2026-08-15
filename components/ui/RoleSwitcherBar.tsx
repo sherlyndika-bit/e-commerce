@@ -22,7 +22,7 @@ export function RoleSwitcherBar() {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className="fixed bottom-4 left-4 z-40">
       <div className="bg-slate-900/95 backdrop-blur-md text-white rounded-full shadow-2xl border border-slate-700/80 px-3 py-1.5 flex items-center gap-2 text-xs">
         <button
           onClick={() => setIsExpanded(!isExpanded)}

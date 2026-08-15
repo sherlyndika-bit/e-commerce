@@ -84,7 +84,7 @@ export function FloatingChat() {
     <>
       {/* Floating Chat Trigger Button */}
       {!isOpen && (
-        <div className="fixed bottom-6 right-6 z-50">
+        <div className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-50">
           <button
             onClick={toggleChat}
             className="group relative flex items-center gap-2.5 bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
