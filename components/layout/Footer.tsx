@@ -91,11 +91,8 @@ export function Footer() {
         </div>
 
         {/* Bottom Copyright */}
-        <div className="mt-8 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-slate-400">
+        <div className="mt-8 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-center gap-2 text-[11px] text-slate-400">
           <p>© 2026 TumbasCO Marketplace. Seluruh Hak Cipta Dilindungi.</p>
-          <p className="flex items-center gap-1">
-            Bangga Buatan Indonesia <Heart className="w-3 h-3 text-rose-500 fill-rose-500" />
-          </p>
         </div>
       </div>
     </footer>
